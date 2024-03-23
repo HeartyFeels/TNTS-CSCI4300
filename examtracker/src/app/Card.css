@@ -1,6 +1,12 @@
 .card {
     background-color: #FCDDEC;
-    padding: 10px;
     border-radius: 10px;
     width: 50%;
+    margin: 0 auto;
+}
+
+.card h1 {
+    text-align: center;
+    padding: 20px;
+
 }

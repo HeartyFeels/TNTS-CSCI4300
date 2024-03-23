@@ -1,6 +1,10 @@
 const AddExam = () => {
     return (
+<<<<<<< Updated upstream
         <div class="grid">
+=======
+        <div className="card">
+>>>>>>> Stashed changes
             <h1>Add Exam</h1>
             <label>Name of Exam:</label>
             <input required type="text"/>
