@@ -3,10 +3,10 @@
     border-radius: 10px;
     width: 50%;
     margin: 0 auto;
+    padding: 30px;
 }
 
 .card h1 {
     text-align: center;
-    padding: 20px;
-
+    font-size: 30px;
 }
