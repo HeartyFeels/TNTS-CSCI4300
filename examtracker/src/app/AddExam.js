@@ -22,7 +22,8 @@ let imgAddress = {
 }
 
 let addExamButton = {
-    label: "Add Exam"
+    label: "Add Exam",
+    action: {}
 }
 
 const AddExam = () => {

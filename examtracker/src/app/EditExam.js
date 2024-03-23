@@ -22,7 +22,8 @@ let editImgAddress = {
 }
 
 let editExamButton = {
-    label: "Edit Exam"
+    label: "Edit Exam",
+    action: {}
 }
 
 const EditExam = () => {
