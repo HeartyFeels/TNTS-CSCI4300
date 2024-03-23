@@ -10,10 +10,12 @@ const AddExam = () => {
             <input required type="text"/>
 
             <label>Date of Exam:</label>
-            <input required type="text"/>
+            <input required type="date"/>
 
             <label>Image Address:</label>
             <input type="text"/>
+
+            <button>Add Exam to Planner</button>
         </div>
     )
 }
