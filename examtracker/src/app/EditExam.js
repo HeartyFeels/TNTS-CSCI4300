@@ -1,18 +1,41 @@
+import Row from "./Row";
+import Button from "./Button";
+
+let editExam = {
+    name: "Name of Exam:",
+    type: "text"
+}
+
+let editSubject = {
+    name: "Subject:",
+    type: "text"
+}
+
+let editDateOfExam = {
+    name: "Date of Exam:",
+    type: "date"
+}
+
+let editImgAddress = {
+    name: "Image Address:",
+    type: "text"
+}
+
+let editExamButton = {
+    label: "Edit Exam"
+}
+
 const EditExam = () => {
     return (
-        <div class="grid">
+        <div>
             <h1>Add Exam</h1>
-            <label>Name of Exam:</label>
-            <input required type="text"/>
-            <label>Subject:</label>
-            <input required type="text"/>
-            <label>Date of Exam:</label>
-            <input required type="date"/>
-            <label>Image Address:</label>
-            <input type="text"/>
-            <button>Save Changes</button>
+            <Row item={editExam}/>
+            <Row item={editSubject}/>
+            <Row item={editDateOfExam}/>
+            <Row item={editImgAddress}/>
+            <Button item={editExamButton}/>
         </div>
-    )
+    );
 
 }
 export default EditExam;
