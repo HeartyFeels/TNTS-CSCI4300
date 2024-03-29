@@ -18,6 +18,9 @@ export default function Home() {
       <Card>
         <AddExam />
       </Card>
+      <Card>
+        <EditExam/>
+      </Card>
     </section>
   );
 }

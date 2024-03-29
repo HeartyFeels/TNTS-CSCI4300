@@ -29,7 +29,7 @@ let editExamButton = {
 const EditExam = () => {
     return (
         <div>
-            <h1>Add Exam</h1>
+            <h1>Edit Exam</h1>
             <Row item={editExam}/>
             <Row item={editSubject}/>
             <Row item={editDateOfExam}/>
