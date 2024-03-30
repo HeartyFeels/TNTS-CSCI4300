@@ -1,0 +1,22 @@
+.examcard {
+    background-color: #FCDDEC;
+    width: 15%;
+    padding: 10px;
+}
+
+.examcard img {
+    border-radius: 5px;
+}
+
+.examcard #buttons {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    padding: 5px;
+
+}
+
+.examcard #buttons Button{
+    margin-right: 5px;
+    padding: 5px;
+}

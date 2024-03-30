@@ -16,6 +16,11 @@ let dateOfExam = {
     type: "date"
 }
 
+let location = {
+    name: "Exam Location: ",
+    type: "text"
+}
+
 let imgAddress = {
     name: "Image Address: ",
     type: "text"
@@ -33,6 +38,7 @@ const AddExam = () => {
             <Row item={addExam}/>
             <Row item={subject}/>
             <Row item={dateOfExam}/>
+            <Row item={location}/>
             <Row item={imgAddress}/>
             <Button item={addExamButton}/>
         </div>

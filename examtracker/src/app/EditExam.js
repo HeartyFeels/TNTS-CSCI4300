@@ -2,22 +2,27 @@ import Row from "./Row";
 import Button from "./Button";
 
 let editExam = {
-    name: "Name of Exam:",
+    name: "Name of Exam: ",
     type: "text"
 }
 
 let editSubject = {
-    name: "Subject:",
+    name: "Subject: ",
     type: "text"
 }
 
 let editDateOfExam = {
-    name: "Date of Exam:",
+    name: "Date of Exam: ",
     type: "date"
 }
 
+let editLocation = {
+    name: "Exam Location: ",
+    type: "text"
+}
+
 let editImgAddress = {
-    name: "Image Address:",
+    name: "Image Address: ",
     type: "text"
 }
 
@@ -33,6 +38,7 @@ const EditExam = () => {
             <Row item={editExam}/>
             <Row item={editSubject}/>
             <Row item={editDateOfExam}/>
+            <Row item={editLocation}/>
             <Row item={editImgAddress}/>
             <Button item={editExamButton}/>
         </div>
