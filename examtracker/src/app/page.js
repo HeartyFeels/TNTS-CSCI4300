@@ -20,7 +20,7 @@ export default function Home() {
 
   const addHandler = (exam) => {
     setExams((prevExam) => {
-      return [...prevExam, exam];
+      return [exam, ...prevExam];
     })
   }
 

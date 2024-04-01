@@ -44,11 +44,11 @@ const AddExam = (props) => {
         }
 
         props.onAddExam(exam);
-        document.getElementById("name").value = "";
-        document.getElementById("subject").value = "";
-        document.getElementById("date").value = "";
-        document.getElementById("location").value = "";
-        document.getElementById("img").value = "";
+        // document.getElementById("name").value = "";
+        // document.getElementById("subject").value = "";
+        // document.getElementById("date").value = "";
+        // document.getElementById("location").value = "";
+        // document.getElementById("img").value = "";
         
         setName("");
         setSubject("");
@@ -66,6 +66,7 @@ const AddExam = (props) => {
                 <input 
                 type="text"
                 id="name"
+                value={name}
                 onChange={nameChanger}
                 />
             </div>
@@ -75,6 +76,7 @@ const AddExam = (props) => {
                 <input 
                 type="text"
                 id="subject"
+                value={subject}
                 onChange={subjectChanger}
                 />
             </div>
@@ -84,6 +86,7 @@ const AddExam = (props) => {
                 <input 
                 type="date"
                 id="date"
+                value={date}
                 onChange={dateChanger}
                 />
             </div>
@@ -93,6 +96,7 @@ const AddExam = (props) => {
                 <input 
                 type="text"
                 id="location"
+                value={location}
                 onChange={locationChanger}
                 />
             </div>
@@ -102,10 +106,10 @@ const AddExam = (props) => {
                 <input 
                 type="text"
                 id="img"
+                value={img}
                 onChange={imgChanger}
                 />
             </div>
-
             <Button type="submit" action={addHandler}>Add Exam</Button>
         </div>
     );
