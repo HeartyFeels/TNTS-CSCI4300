@@ -4,7 +4,9 @@ const Row = ({item}) => {
     return (
         <div className="row">
             <label>{item.name}</label>
-            <input type={item.type} />
+            <input 
+            required type={item.type} 
+            />
         </div>
     );
 }

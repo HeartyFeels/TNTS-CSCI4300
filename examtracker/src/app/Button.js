@@ -1,9 +1,9 @@
 import "./Button.css"
 
-const Button = ({item}) => {
+const Button = (props) => {
     return (
         <div className="button">
-            <button onClick={item.action}>{item.label}</button>
+            <button type={props.type || "button"} onClick={props.action}>{props.children}</button>
         </div>
     );
 }

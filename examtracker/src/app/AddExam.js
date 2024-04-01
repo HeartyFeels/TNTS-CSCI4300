@@ -1,46 +1,112 @@
-import Row from "./Row";
+"use client"
+
 import Button from "./Button";
+import "./Row.css"
 
-let addExam = {
-    name: "Name of Exam: ",
-    type: "text"
-}
+import {useState} from 'react';
 
-let subject = {
-    name: "Subject: ",
-    type: "text"
-}
+const AddExam = (props) => {
+    const [name, setName] = useState("");
+    const [subject, setSubject] = useState("");
+    const [date, setDate] = useState("");
+    const [location, setLocation] = useState("");
+    const [img, setImg] = useState("");
 
-let dateOfExam = {
-    name: "Date of Exam: ",
-    type: "date"
-}
+    const nameChanger = (event) => {
+        setName(event.target.value);
+    }
 
-let location = {
-    name: "Exam Location: ",
-    type: "text"
-}
+    const subjectChanger = (event) => {
+        setSubject(event.target.value);
+    }
 
-let imgAddress = {
-    name: "Image Address: ",
-    type: "text"
-}
+    const dateChanger = (event) => {
+        setDate(event.target.value);
+    }
 
-let addExamButton = {
-    label: "Add Exam",
-    action: {}
-}
+    const locationChanger = (event) => {
+        setLocation(event.target.value);
+    }
 
-const AddExam = () => {
+    const imgChanger = (event) => {
+        setImg(event.target.value);
+    }
+
+    const addHandler = (event) => {
+        event.preventDefault();
+        const exam = {
+            id: Math.random().toString(),
+            name: name,
+            subject: subject,
+            date: date,
+            location: location,
+            img: img
+        }
+
+        props.onAddExam(exam);
+        document.getElementById("name").value = "";
+        document.getElementById("subject").value = "";
+        document.getElementById("date").value = "";
+        document.getElementById("location").value = "";
+        document.getElementById("img").value = "";
+        
+        setName("");
+        setSubject("");
+        setDate("");
+        setLocation("");
+        setImg("");
+    }
+    
     return (
         <div>
             <h1>Add Exam</h1>
-            <Row item={addExam}/>
-            <Row item={subject}/>
-            <Row item={dateOfExam}/>
-            <Row item={location}/>
-            <Row item={imgAddress}/>
-            <Button item={addExamButton}/>
+            
+            <div className="row">
+                <label>Name of Exam: </label>
+                <input 
+                type="text"
+                id="name"
+                onChange={nameChanger}
+                />
+            </div>
+
+            <div className="row">
+                <label>Subject: </label>
+                <input 
+                type="text"
+                id="subject"
+                onChange={subjectChanger}
+                />
+            </div>
+
+            <div className="row">
+                <label>Date of Exam: </label>
+                <input 
+                type="date"
+                id="date"
+                onChange={dateChanger}
+                />
+            </div>
+
+            <div className="row">
+                <label>Location: </label>
+                <input 
+                type="text"
+                id="location"
+                onChange={locationChanger}
+                />
+            </div>
+
+            <div className="row">
+                <label>Image Address: </label>
+                <input 
+                type="text"
+                id="img"
+                onChange={imgChanger}
+                />
+            </div>
+
+            <Button type="submit" action={addHandler}>Add Exam</Button>
         </div>
     );
 }

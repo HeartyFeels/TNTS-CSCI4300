@@ -1,26 +1,24 @@
 import Button from "./Button";
 import "./ExamCard.css";
 
-let editButton = {
-    label: "Edit",
-    action: {}
-}
-
-let deleteButton = {
-    label: "Delete",
-    action: {}
-}
-
 const ExamCard = (props) => {
+    const editHandler = (props) => {
+        
+    }
+    
+    const deleteHandler = () => {
+        
+    }
+
     return (
         <div className="examcard">
-            <img src={props.item.src} alt={props.item.name} width="100%" height="100%"/>
-            <p>Exam: {props.item.name}</p>
-            <p>Date: {props.item.date}</p>
-            <p>Location: {props.item.location}</p>
+            <img src={props.img} alt={props.name} width="100%" height="100%"/>
+            <p>Exam: {props.name}</p>
+            <p>Date: {props.date}</p>
+            <p>Location: {props.location}</p>
             <div id="buttons">
-                <Button item={editButton}/> 
-                <Button item={deleteButton}/>
+            <Button type="submit" action={editHandler}>Edit</Button> 
+            <Button type="submit" action={deleteHandler}>Delete</Button>
             </div>
         </div>
     );
