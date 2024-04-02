@@ -7,6 +7,7 @@ import EditExam from "./EditExam"
 import LoginBox from "./LoginBox"
 import ExamList from "./ExamList"
 import { useState } from "react"
+import WelcomePage from "./WelcomePage"
 
 // let data = {
 //   name: "CSCI 1302 Exam 2",
@@ -27,6 +28,10 @@ export default function Home() {
   return ( 
     <section>
 
+
+      <WelcomePage />
+  
+  
       <Card>
         <SignUpBox />
       </Card>
