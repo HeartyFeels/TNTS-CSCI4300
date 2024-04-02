@@ -4,7 +4,7 @@ import Button from "./Button";
 import "./Row.css"
 
 import {useState} from 'react';
-
+let idCounter = -1;
 const AddExam = (props) => {
     const [name, setName] = useState("");
     const [subject, setSubject] = useState("");
@@ -35,14 +35,15 @@ const AddExam = (props) => {
     const addHandler = (event) => {
         event.preventDefault();
         const exam = {
-            id: Math.random().toString(),
+            id: idCounter++,
             name: name,
             subject: subject,
             date: date,
             location: location,
             img: img
         }
-
+        //for testing
+        console.log("id counter: " + idCounter);
         props.onAddExam(exam);
         // document.getElementById("name").value = "";
         // document.getElementById("subject").value = "";
