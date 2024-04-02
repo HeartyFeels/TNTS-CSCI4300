@@ -1,53 +1,10 @@
-import Row from "./Row";
+"use client"
+
 import Button from "./Button";
-import { useState
- } from "react";
-let editExam = {
-    name: "Name of Exam: ",
-    type: "text"
-}
-
-let editSubject = {
-    name: "Subject: ",
-    type: "text"
-}
-
-let editDateOfExam = {
-    name: "Date of Exam: ",
-    type: "date"
-}
-
-let editLocation = {
-    name: "Exam Location: ",
-    type: "text"
-}
-
-let editImgAddress = {
-    name: "Image Address: ",
-    type: "text"
-}
-
-let editExamButton = {
-    label: "Edit Exam",
-    action: {}
-}
-
-// const EditExam = () => {
-//     return (
-//         <div>
-//             <h1>Edit Exam</h1>
-//             <Row item={editExam}/>
-//             <Row item={editSubject}/>
-//             <Row item={editDateOfExam}/>
-//             <Row item={editLocation}/>
-//             <Row item={editImgAddress}/>
-//             <Button type="submit" action={addHandler}>Edit Exam</Button>
-//         </div>
-//     );
-
-// }
-// export default EditExam;
-
+import { useState } from "react";
+import Card from "./Card";
+import Link from "next/link";
+import "./Row.css"
 const EditExam = (props) => {
     const [name, setName] = useState("");
     const [subject, setSubject] = useState("");
@@ -102,54 +59,55 @@ const EditExam = (props) => {
     
     return (
         <div>
-            <h1>Edit Exam</h1>
-            
-            <div className="row">
-                <label>Name of Exam: </label>
-                <input 
-                type="text"
-                id="name"
-                onChange={nameChanger}
-                />
-            </div>
+            <Card>
+                <h1>Edit Exam</h1>
+                
+                <div className="row">
+                    <label>Name of Exam: </label>
+                    <input 
+                    type="text"
+                    id="name"
+                    onChange={nameChanger}
+                    />
+                </div>
 
-            <div className="row">
-                <label>Subject: </label>
-                <input 
-                type="text"
-                id="subject"
-                onChange={subjectChanger}
-                />
-            </div>
+                <div className="row">
+                    <label>Subject: </label>
+                    <input 
+                    type="text"
+                    id="subject"
+                    onChange={subjectChanger}
+                    />
+                </div>
 
-            <div className="row">
-                <label>Date of Exam: </label>
-                <input 
-                type="date"
-                id="date"
-                onChange={dateChanger}
-                />
-            </div>
+                <div className="row">
+                    <label>Date of Exam: </label>
+                    <input 
+                    type="date"
+                    id="date"
+                    onChange={dateChanger}
+                    />
+                </div>
 
-            <div className="row">
-                <label>Location: </label>
-                <input 
-                type="text"
-                id="location"
-                onChange={locationChanger}
-                />
-            </div>
+                <div className="row">
+                    <label>Location: </label>
+                    <input 
+                    type="text"
+                    id="location"
+                    onChange={locationChanger}
+                    />
+                </div>
 
-            <div className="row">
-                <label>Image Address: </label>
-                <input 
-                type="text"
-                id="img"
-                onChange={imgChanger}
-                />
-            </div>
-
-            <Button type="submit" action={addHandler}>Edit Exam</Button>
+                <div className="row">
+                    <label>Image Address: </label>
+                    <input 
+                    type="text"
+                    id="img"
+                    onChange={imgChanger}
+                    />
+                </div>
+                <Link href="/schedule"><Button type="submit" action={addHandler}>Edit Exam</Button></Link>
+            </Card>
         </div>
     );
 }
