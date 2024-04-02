@@ -17,7 +17,7 @@ const ExamCard = (props) => {
             <p>Date: {props.date}</p>
             <p>Location: {props.location}</p>
             <div id="buttons">
-            <Button type="submit" action={editHandler}>Edit</Button> 
+            <Link href="/editexam"><Button type="submit" action={editHandler}>Edit</Button></Link>   
             <Button type="submit" action={deleteHandler}>Delete</Button>
             </div>
         </div>

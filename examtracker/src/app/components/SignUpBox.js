@@ -1,5 +1,7 @@
 import Row from "./Row";
 import Button from "./Button";
+import Card from "./Card";
+import Link from "next/link";
 
 let firstName =  {
     name: "First Name: ",
@@ -29,16 +31,19 @@ let signUpButton = {
 const SignUpBox = () => {
     return (
         <div>
-            <h1>Sign Up</h1>
-            <Row item={firstName} />
+            <Card>
+                <h1>Sign Up</h1>
+                <Row item={firstName} />
 
-            <Row item={lastName} />
+                <Row item={lastName} />
 
-            <Row item={username} />
+                <Row item={username} />
 
-            <Row item={password} />
+                <Row item={password} />
 
-            <Button item={signUpButton} />
+                <Link href="/schedule"><Button>Sign Up</Button></Link>
+                <p id="option">Already have an account? Log in <Link href="/login">here</Link> </p>
+            </Card>
         </div>
     );
 }

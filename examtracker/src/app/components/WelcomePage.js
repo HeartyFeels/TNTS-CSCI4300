@@ -1,6 +1,7 @@
 import React from 'react';
 import Button from "./Button";
 import "./WelcomePage.css";
+import Link from "next/link";
 
 
 
@@ -25,7 +26,8 @@ const WelcomePage = () => {
                 You can easily manage and track your exams by viewing, editing, or deleting them anytime.
                 </p>
             </div>
-            <Button>Get Started</Button>
+            <Link href="/signup"><Button>Get Started</Button></Link>
+            
         </div>
     );
 }

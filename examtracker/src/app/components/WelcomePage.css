@@ -1,6 +1,12 @@
+* {
+    margin: 0;
+    background-color: #FCDDEC;
+}
+
 .intro-container {
     text-align: center;
     margin-top: 50px;
+    
 }
 
 .logo-container {
