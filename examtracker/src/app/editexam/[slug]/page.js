@@ -1,7 +1,7 @@
 import EditExam from "../components/EditExam";
 import ExamList from "../components/ExamList";
 
-const EditPage = () => {
+const EditPage = ({params}) => {
     const [exams, setExams] = useState([]);
     const editHandler = (exam) => {
         setExams((prevExam) => {
