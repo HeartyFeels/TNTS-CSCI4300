@@ -35,7 +35,7 @@ const EditExam = (props) => {
     const addHandler = (event) => {
         event.preventDefault();
         const exam = {
-            id: Math.random().toString(),
+            //id: Math.random().toString(),
             name: name,
             subject: subject,
             date: date,
@@ -43,7 +43,7 @@ const EditExam = (props) => {
             img: img
         }
 
-        props.onAddExam(exam);
+        props.onEditExam(exam);
         document.getElementById("name").value = "";
         document.getElementById("subject").value = "";
         document.getElementById("date").value = "";

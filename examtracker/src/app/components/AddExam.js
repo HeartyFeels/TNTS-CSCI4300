@@ -6,7 +6,7 @@ import Card from "./Card";
 import Link from "next/link";
 
 import {useState} from 'react';
-let idCounter = -1;
+//let idCounter = -1;
 const AddExam = (props) => {
     const [name, setName] = useState("");
     const [subject, setSubject] = useState("");
@@ -37,7 +37,7 @@ const AddExam = (props) => {
     const addHandler = (event) => {
         event.preventDefault();
         const exam = {
-            id: idCounter++,
+            //id: idCounter++,
             name: name,
             subject: subject,
             date: date,
@@ -45,7 +45,7 @@ const AddExam = (props) => {
             img: img
         }
         //for testing
-        console.log("id counter: " + idCounter);
+        //console.log("id counter: " + idCounter);
         props.onAddExam(exam);
         // document.getElementById("name").value = "";
         // document.getElementById("subject").value = "";
