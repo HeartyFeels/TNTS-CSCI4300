@@ -1,0 +1,53 @@
+.upcoming{
+    margin-top: 100px;
+}
+
+.schedule-view-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.exam-cards-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.schedule-chart-container {
+    display: flex;
+    gap: 10px;
+}
+
+.schedule-day {
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+
+/* ScheduleView.css */
+
+/* Add styles for the day cards */
+.schedule-days {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.schedule-day-card {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 5px;
+}
+
+.day-title {
+    font-size: 1.2rem;
+    margin-bottom: 300px;
+    margin-right: 50px;
+    color: rgb(240, 160, 200);
+}
+
+.ending{
+    margin-bottom: 200px;
+}
