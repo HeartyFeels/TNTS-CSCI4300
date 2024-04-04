@@ -12,6 +12,10 @@ export default function Navbar() {
             <li>
                 <a href="/login">Login</a>
              </li>
+
+            <li>
+                <a href="/schedule">Schedule</a>
+            </li>
         </ul>
     </nav>
 }

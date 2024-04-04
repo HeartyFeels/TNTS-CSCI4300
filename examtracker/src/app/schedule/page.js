@@ -6,6 +6,7 @@ import Button from "../components/Button";
 import AddExam from "../components/AddExam";
 import EditExam from "../components/EditExam";
 import ScheduleView from "../components/ScheduleView";
+import Navbar from "../components/NavBar";
 const Schedule = () => {
     const [exams, setExams] = useState([]);
 
@@ -23,6 +24,7 @@ const Schedule = () => {
 
     return (
         <div>
+            <Navbar/>
             <ScheduleView/>
             <ExamList items={exams}/>
             {/* <AddExam onAddExam={addHandler}/>
