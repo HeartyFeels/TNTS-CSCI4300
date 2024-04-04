@@ -1,20 +1,20 @@
-import { Libre_Barcode_128 } from "next/font/google";
 import "./NavBar.css"
+import Link from "next/link";
 
 export default function Navbar() {
     return <nav className="nav">
         <a href="/" className="site-title">KnowFlow</a>
         <ul>
             <li>
-                <a href="/signup">Signup</a>
+                <Link href="/signup">Signup</Link>
             </li>
             
             <li>
-                <a href="/login">Login</a>
+                <Link href="/login">Login</Link>
              </li>
 
             <li>
-                <a href="/schedule">Schedule</a>
+                <Link href="/schedule">Schedule</Link>
             </li>
         </ul>
     </nav>
