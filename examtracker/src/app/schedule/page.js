@@ -5,6 +5,7 @@ import Link from "next/link";
 import Button from "../components/Button";
 import AddExam from "../components/AddExam";
 import EditExam from "../components/EditExam";
+import ScheduleView from "../components/ScheduleView";
 const Schedule = () => {
     const [exams, setExams] = useState([]);
 
@@ -22,10 +23,10 @@ const Schedule = () => {
 
     return (
         <div>
+            <ScheduleView/>
             <ExamList items={exams}/>
-            <AddExam onAddExam={addHandler}/>
-            <EditExam onEditExam={editHandler}/>
-            <Link href="/addexam"><Button>Add Exam</Button></Link>
+            {/* <AddExam onAddExam={addHandler}/>
+            <EditExam onEditExam={editHandler}/> */}
         </div>
     )
 }

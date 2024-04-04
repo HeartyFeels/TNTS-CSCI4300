@@ -5,6 +5,7 @@ const EditPage = ({params}) => {
     const [exams, setExams] = useState([]);
     const editHandler = (exam) => {
         setExams((prevExam) => {
+            //id: params.id;
             return [exam, ...prevExam];
         })
     }

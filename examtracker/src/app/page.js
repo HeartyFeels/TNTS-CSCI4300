@@ -8,13 +8,8 @@ function Home () {
   return(
     <div className="home">
       <WelcomePage />
-      <ScheduleView />
+      {/* <ScheduleView /> */}
 
-      {
-          //testing
-      }
-      <AddExam/>
-      <EditExam/>
     </div>
   )
 }
