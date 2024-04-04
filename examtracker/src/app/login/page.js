@@ -1,8 +1,9 @@
 import LoginBox from "../components/LoginBox"
-
+import Navbar from "../components/NavBar";
 const LoginPage = () => {
-    return (
+    return (       
         <div>
+            <Navbar/>
             <LoginBox />
         </div>
     )

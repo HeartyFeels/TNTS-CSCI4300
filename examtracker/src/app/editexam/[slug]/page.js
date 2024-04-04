@@ -1,6 +1,6 @@
 import EditExam from "../components/EditExam";
 import ExamList from "../components/ExamList";
-
+import Navbar from "@/app/components/NavBar";
 const EditPage = ({params}) => {
     const [exams, setExams] = useState([]);
     const editHandler = (exam) => {
@@ -11,6 +11,7 @@ const EditPage = ({params}) => {
     }
     return (
         <div>
+            <Navbar/>
             <ExamList items={exams}/>
             <EditExam onEditExam={editHandler}/>
         </div>
