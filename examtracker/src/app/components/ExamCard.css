@@ -1,6 +1,7 @@
 .examcard {
     background-color: #FCDDEC;
-    width: 15%;
+    width: 200px;
+    height: 200px;
     padding: 10px;
 }
 

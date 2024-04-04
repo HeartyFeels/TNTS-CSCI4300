@@ -1,16 +1,7 @@
-.upcoming{
-    margin-top: 100px;
-}
 
 .schedule-view-container {
     display: flex;
     flex-direction: column;
-    gap: 20px;
-}
-
-.exam-cards-container {
-    display: flex;
-    justify-content: space-between;
     gap: 20px;
 }
 

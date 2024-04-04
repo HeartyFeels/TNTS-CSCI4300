@@ -1,7 +1,7 @@
 // ScheduleView.js
 import React from 'react';
-import ExamCard from './ExamCard';
 import "./ScheduleView.css";
+import ExamList from './ExamList';
 
 
 const ScheduleView = () => {
@@ -51,23 +51,6 @@ const ScheduleView = () => {
 
     return (
         <div className="schedule-view-container">
-            <div className="upcoming-exams">
-                <h2 className="upcoming">Upcoming Exams</h2>
-               
-                <div className="exam-cards-container">
-                    {exams.map(exam => (
-                        <ExamCard 
-                            key={exam.id}
-                            name={exam.name}
-                            date={exam.date}
-                            location={exam.location}
-                            time={exam.time}
-                            img={exam.img}
-                            
-                        />
-                    ))}
-                </div>
-            </div>
             <div className="schedule-chart">
                 <h2>Schedule for the Week</h2>
                 <div className="schedule-chart-container">
