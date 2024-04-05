@@ -1,5 +1,6 @@
 import React from 'react';
 import "./ScheduleView.css";
+import Link from 'next/link';
 
 const ScheduleView = () => {
     const exams = [
@@ -53,14 +54,14 @@ const ScheduleView = () => {
                                 <p>Location: {exam.location}</p>
                             </div>
                             <div className="buttons-container">
-                                <a href="/addexam">
+                                <a href="/editexam">
                                     <div className="button">
-                                        <button type="button">Add Exam</button>
+                                        <button type="button">Edit Exam</button>
                                     </div>
                                 </a>
                                 <a href="/editexam">
                                     <div className="button">
-                                        <button type="button">Edit Exam</button>
+                                        <button type="button">Delete Exam</button>
                                     </div>
                                 </a>
                             </div>
