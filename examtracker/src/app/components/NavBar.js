@@ -28,7 +28,7 @@ function NavBarAfterLogin() {
             </li>
 
             <li>
-                <Link href="/login">Logout</Link>
+                <Link href="/">Logout</Link>
             </li>
         </>
     )
