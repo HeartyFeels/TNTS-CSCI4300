@@ -11,7 +11,7 @@ const EditPage = ({params}) => {
     }
     return (
         <div>
-            <Navbar/>
+            <Navbar isActive={true} />
             <ExamList items={exams}/>
             <EditExam onEditExam={editHandler}/>
         </div>

@@ -1,6 +1,7 @@
 import React from 'react';
 import "./ScheduleView.css";
 import Link from 'next/link';
+import Button from './Button';
 
 const ScheduleView = () => {
     const exams = [
@@ -37,11 +38,12 @@ const ScheduleView = () => {
             time: "3:55-5:10 P.M"
         },
     ];
-
     return (
         <div className="schedule-view-container">
+            <h1>Upcoming Exams</h1>
+            <Link href="/addexam"><Button>+ Add Exam</Button></Link>
             <div className="upcoming-exams">
-    
+
                 <div className="exam-cards-container">
                     {exams.map(exam => (
                         <div key={exam.id} className="examcard">
@@ -54,35 +56,19 @@ const ScheduleView = () => {
                                 <p>Location: {exam.location}</p>
                             </div>
                             <div className="buttons-container">
-                                <a href="/editexam">
+                                <Link href="/addexam">
                                     <div className="button">
                                         <button type="button">Edit Exam</button>
                                     </div>
-                                </a>
-                                <a href="/schedule">
+                                </Link>
+                                <Link href="/schedule">
                                     <div className="button">
                                         <button type="button">Delete Exam</button>
                                     </div>
-                                </a>
+                                </Link>
                             </div>
                         </div>
                     ))}
-                </div>
-            </div>
-            <div className="schedule-chart">
-                <h2 className="heading" >Schedule for the Week</h2>
-                <div className="schedule-chart-container">
-                    {/* Schedule chart with days of the week */}
-                    <div className="schedule-days">
-                        {/* Card-like structure for each day */}
-                        <div className="schedule-day">Monday</div>
-                        <div className="schedule-day">Tuesday</div>
-                        <div className="schedule-day">Wednesday</div>
-                        <div className="schedule-day">Thursday</div>
-                        <div className="schedule-day">Friday</div>
-                        <div className="schedule-day">Saturday</div>
-                        <div className="schedule-day">Sunday</div>
-                    </div>
                 </div>
             </div>
         </div>

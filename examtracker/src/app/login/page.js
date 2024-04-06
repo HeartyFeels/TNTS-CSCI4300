@@ -3,7 +3,7 @@ import Navbar from "../components/NavBar";
 const LoginPage = () => {
     return (       
         <div>
-            <Navbar/>
+            <Navbar isActive={false}/>
             <LoginBox />
         </div>
     )

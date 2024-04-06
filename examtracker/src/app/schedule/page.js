@@ -50,8 +50,7 @@ const Schedule = () => {
 
     return (
         <div>
-            <Navbar/>
-            <h1>Upcoming Exams</h1>
+            <Navbar isActive={true}/>
             <ExamList items={exams}/>
             <ScheduleView/>
             {/* <AddExam onAddExam={addHandler}/>

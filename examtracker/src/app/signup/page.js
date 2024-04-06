@@ -3,7 +3,7 @@ import Navbar from "../components/NavBar";
 const SignupPage = () => {
     return (
         <div>
-            <Navbar/>
+            <Navbar isActive={false}/>
             <SignUpBox />
         </div>
     )

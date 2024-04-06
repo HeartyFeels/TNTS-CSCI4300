@@ -4,14 +4,18 @@
     flex-direction: column;
     align-content: center;
     border: 3px solid hotpink;
+    background-color: #ffe6e6;
     border-radius: 15px;
     padding: 10px;
 }
 
 .exam-image {
+    display: block;
+    margin: 0 auto;
     width: 100%;
     max-width: 200px; 
     border-radius: 5px;
+
 }
 
 .exam-details {

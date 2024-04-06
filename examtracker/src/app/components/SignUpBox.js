@@ -28,7 +28,7 @@ let signUpButton = {
     action: {}
 }
 
-const SignUpBox = () => {
+const SignUpBox = (props) => {
     return (
         <div>
             <Card>
@@ -41,7 +41,7 @@ const SignUpBox = () => {
 
                 <Row item={password} />
 
-                <Link href="/schedule"><Button>Sign Up</Button></Link>
+                <Link href="/schedule" onClick= {props.setActive} ><Button>Sign Up</Button></Link>
                 <p id="option">Already have an account? Log in <Link href="/login">here</Link> </p>
             </Card>
         </div>
