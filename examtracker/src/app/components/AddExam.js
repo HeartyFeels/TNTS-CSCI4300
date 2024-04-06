@@ -6,7 +6,7 @@ import Card from "./Card";
 import Link from "next/link";
 
 import {useState} from 'react';
-//let idCounter = -1;
+
 const AddExam = (props) => {
     const [name, setName] = useState("");
     const [subject, setSubject] = useState("");
@@ -44,9 +44,10 @@ const AddExam = (props) => {
             location: location,
             img: img
         }
-        //for testing
-        //console.log("id counter: " + idCounter);
+        
+
         props.onAddExam(exam);
+        
         // document.getElementById("name").value = "";
         // document.getElementById("subject").value = "";
         // document.getElementById("date").value = "";
@@ -64,7 +65,7 @@ const AddExam = (props) => {
         <div>
             <Card>
                 <h1>Add Exam</h1>
-                
+                <form onSubmit={addHandler}>
                 <div className="row">
                     <label>Name of Exam: </label>
                     <input 
@@ -115,7 +116,7 @@ const AddExam = (props) => {
                     />
                 </div>
                 <Link href="/schedule"><Button type="submit" action={addHandler}>Add Exam</Button></Link>
-                
+                </form>
             </Card>
         </div>
     );

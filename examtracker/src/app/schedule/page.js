@@ -51,10 +51,7 @@ const Schedule = () => {
     return (
         <div>
             <Navbar isActive={true}/>
-            <ExamList items={exams}/>
             <ScheduleView/>
-            {/* <AddExam onAddExam={addHandler}/>
-            <EditExam onEditExam={editHandler}/> */}
         </div>
     )
 }

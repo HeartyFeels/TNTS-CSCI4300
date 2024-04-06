@@ -7,6 +7,7 @@ import Navbar from "../components/NavBar";
 
 const AddPage = () => {
     const [exams, setExams] = useState([]);
+    
     const addHandler = (exam) => {
         setExams((prevExam) => {
         return [exam, ...prevExam];
@@ -15,7 +16,7 @@ const AddPage = () => {
 
     return (
         <div>
-            <Navbar/>
+            <Navbar isActive={true} />
             <ExamList items={exams}/>
             <AddExam onAddExam={addHandler}/>
         </div>
