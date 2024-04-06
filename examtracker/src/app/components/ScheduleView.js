@@ -59,7 +59,7 @@ const ScheduleView = () => {
                                         <button type="button">Edit Exam</button>
                                     </div>
                                 </a>
-                                <a href="/editexam">
+                                <a href="/schedule">
                                     <div className="button">
                                         <button type="button">Delete Exam</button>
                                     </div>
