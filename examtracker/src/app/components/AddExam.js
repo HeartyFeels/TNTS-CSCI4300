@@ -47,11 +47,11 @@ const AddExam = (props) => {
 
         props.onAddExam(exam);
         
-        // document.getElementById("name").value = "";
-        // document.getElementById("subject").value = "";
-        // document.getElementById("date").value = "";
-        // document.getElementById("location").value = "";
-        // document.getElementById("img").value = "";
+        document.getElementById("name").value = "";
+        document.getElementById("subject").value = "";
+        document.getElementById("date").value = "";
+        document.getElementById("location").value = "";
+        document.getElementById("img").value = "";
         
         setName("");
         setSubject("");

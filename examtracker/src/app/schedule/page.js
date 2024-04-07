@@ -1,10 +1,13 @@
 "use client"
-import { useState } from "react";
 import ExamList from "../components/ExamList";
-import ScheduleView from "../components/ScheduleView";
+import Link from "next/link";
 import Navbar from "../components/NavBar";
+import Button from "../components/Button";
+import { useState } from "react";
+
 const Schedule = () => {
-    const exams = [
+
+    const examsList = [
         {
             id: 1,
             img: "/images/DefaultImage.png",
@@ -48,10 +51,25 @@ const Schedule = () => {
   
     ];
 
+    const [exams, setExams] = useState(examsList);
+
+    const addExamHandler = (exam) => {
+        setExams((prevExams) => {
+            return [...prevExams, exam]
+        })
+    }
+
     return (
         <div>
             <Navbar isActive={true}/>
-            <ScheduleView/>
+            
+            <h1 className="upcoming-exams">Upcoming Exams</h1>
+
+            <div className ="add-exam-button">
+                <Link href="/addexam" onAddExam={addExamHandler}><Button>+ Add Exam</Button></Link>
+            </div>
+
+            <ExamList items={exams} />
         </div>
     )
 }

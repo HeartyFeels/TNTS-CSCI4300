@@ -2,7 +2,6 @@ import React from 'react';
 import "./ScheduleView.css";
 import Link from 'next/link';
 import Button from './Button';
-import AddExam from './AddExam';
 import ExamList from './ExamList';
 const ScheduleView = () => {
     const exams = [
@@ -46,35 +45,7 @@ const ScheduleView = () => {
             <div className ="add-exam-button">
                 <Link href="/addexam"><Button>+ Add Exam</Button></Link>
             </div>
-            <div className="upcoming-exams">
-
-                <div className="exam-cards-container">
-                    {exams.map(exam => (
-                        <div key={exam.id} className="examcard">
-                            <div className="image-container">
-                                <img src={exam.img} alt={exam.name} className="exam-image" />
-                            </div>
-                            <div className="exam-details">
-                                <p>Exam: {exam.name}</p>
-                                <p>Date: {exam.date}</p>
-                                <p>Location: {exam.location}</p>
-                            </div>
-                            <div className="buttons-container">
-                                <Link href="/addexam">
-                                    <div className="button">
-                                        <Button>Edit Exam</Button>
-                                    </div>
-                                </Link>
-                                <Link href="/schedule">
-                                    <div className="button">
-                                        <Button>Delete Exam</Button>
-                                    </div>
-                                </Link>
-                            </div>
-                        </div>
-                    ))}
-                </div>
-            </div>
+            <ExamList items={exams} />
         </div>
     );
 }
