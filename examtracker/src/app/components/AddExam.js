@@ -48,8 +48,8 @@ const AddExam = (props) => {
         }
 
         console.log(exam);
-
-        props.onAddExam(exam);
+        //lifting state
+       // props.onAddExam(exam);
 
         document.getElementById("name").value = "";
         document.getElementById("subject").value = "";
