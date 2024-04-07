@@ -43,10 +43,10 @@ const AddExam = (props) => {
             location: location,
             img: img
         }
-        
 
         props.onAddExam(exam);
-        
+        console.log(exam);
+
         document.getElementById("name").value = "";
         document.getElementById("subject").value = "";
         document.getElementById("date").value = "";

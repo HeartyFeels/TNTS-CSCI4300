@@ -1,6 +1,4 @@
 import ExamCard from "./ExamCard"
-
-
 const ExamList = (props) => {
     return (
         <div>

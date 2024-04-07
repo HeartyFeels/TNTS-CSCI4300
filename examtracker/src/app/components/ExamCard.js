@@ -17,7 +17,6 @@ const ExamCard = (props) => {
                         <button type="button">Edit Exam</button>
                     </div>
                 </Link>
-
                 <Link href="/schedule">
                     <div className="button">
                         <button type="button">Delete Exam</button>

@@ -5,7 +5,7 @@ import Navbar from "../components/NavBar";
 import Button from "../components/Button";
 import { useState } from "react";
 
-const Schedule = () => {
+const Schedule = (props) => {
 
     const examsList = [
         {

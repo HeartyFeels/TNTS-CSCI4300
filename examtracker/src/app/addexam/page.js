@@ -9,7 +9,8 @@ const AddPage = (props) => {
     return (
         <div>
             <Navbar isActive={true} />
-            <AddExam onAddExam={props.onAddExam}/>
+            {/* <AddExam onaddExam={props.onAddExam}/> */}
+            <AddExam/>
         </div>
     )
 }
