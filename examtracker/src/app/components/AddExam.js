@@ -1,5 +1,7 @@
 "use client"
 
+import React from "react";
+
 import Button from "./Button";
 import "./Row.css"
 import Card from "./Card";
@@ -37,6 +39,7 @@ const AddExam = (props) => {
     const addHandler = (event) => {
         event.preventDefault();
         const exam = {
+            id: Math.random().toString(),
             name: name,
             subject: subject,
             date: date,
@@ -44,8 +47,9 @@ const AddExam = (props) => {
             img: img
         }
 
-        props.onAddExam(exam);
         console.log(exam);
+
+        props.onAddExam(exam);
 
         document.getElementById("name").value = "";
         document.getElementById("subject").value = "";
@@ -53,11 +57,11 @@ const AddExam = (props) => {
         document.getElementById("location").value = "";
         document.getElementById("img").value = "";
         
-        setName("");
-        setSubject("");
-        setDate("");
-        setLocation("");
-        setImg("");
+        setName('');
+        setSubject('');
+        setDate('');
+        setLocation('');
+        setImg('');
     }
     
     return (
@@ -67,54 +71,49 @@ const AddExam = (props) => {
                 <form onSubmit={addHandler}>
                 <div className="row">
                     <label>Name of Exam: </label>
-                    <input 
+                    <input required
                     type="text"
                     id="name"
-                    value={name}
                     onChange={nameChanger}
                     />
                 </div>
 
                 <div className="row">
                     <label>Subject: </label>
-                    <input 
+                    <input required
                     type="text"
                     id="subject"
-                    value={subject}
                     onChange={subjectChanger}
                     />
                 </div>
 
                 <div className="row">
                     <label>Date of Exam: </label>
-                    <input 
+                    <input required
                     type="date"
                     id="date"
-                    value={date}
                     onChange={dateChanger}
                     />
                 </div>
 
                 <div className="row">
                     <label>Location: </label>
-                    <input 
+                    <input required
                     type="text"
                     id="location"
-                    value={location}
                     onChange={locationChanger}
                     />
                 </div>
 
                 <div className="row">
                     <label>Image Address: </label>
-                    <input 
+                    <input required
                     type="text"
                     id="img"
-                    value={img}
                     onChange={imgChanger}
                     />
                 </div>
-                <Link href="/schedule"><Button>Add Exam</Button></Link>
+                <Link href="/schedule"><Button type="submit" onClick={addHandler}>Add Exam</Button></Link>
                 </form>
             </Card>
         </div>
