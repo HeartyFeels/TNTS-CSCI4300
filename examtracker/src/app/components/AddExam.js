@@ -34,7 +34,7 @@ const AddExam = (props) => {
         setImg(event.target.value);
     }
 
-    const addHandler = (event) => {
+    const submitHandler = (event) => {
         event.preventDefault();
         const exam = {
             name: name,
@@ -64,7 +64,7 @@ const AddExam = (props) => {
         <div>
             <Card>
                 <h1>Add Exam</h1>
-                <form onSubmit={addHandler}>
+                <form onSubmit={submitHandler}>
                 <div className="row">
                     <label>Name of Exam: </label>
                     <input 
@@ -114,7 +114,7 @@ const AddExam = (props) => {
                     onChange={imgChanger}
                     />
                 </div>
-                <Link href="/schedule"><Button>Add Exam</Button></Link>
+                <Link href="/schedule"><Button type="submit">Add Exam</Button></Link>
                 </form>
             </Card>
         </div>
