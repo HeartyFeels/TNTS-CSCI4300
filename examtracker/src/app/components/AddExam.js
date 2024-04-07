@@ -36,7 +36,7 @@ const AddExam = (props) => {
         setImg(event.target.value);
     }
 
-    const addHandler = (event) => {
+    const submitHandler = (event) => {
         event.preventDefault();
         const exam = {
             id: Math.random().toString(),
@@ -68,7 +68,7 @@ const AddExam = (props) => {
         <div>
             <Card>
                 <h1>Add Exam</h1>
-                <form onSubmit={addHandler}>
+                <form onSubmit={submitHandler}>
                 <div className="row">
                     <label>Name of Exam: </label>
                     <input required

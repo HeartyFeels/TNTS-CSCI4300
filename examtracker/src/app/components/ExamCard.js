@@ -13,14 +13,14 @@ const ExamCard = (props) => {
             <p>Location: {props.location}</p>
             <div className="buttons-container">
                 <Link href="/addexam">
-                    <div className="button">
-                        <button type="button">Edit Exam</button>
-                    </div>
+                    {/* <div className="button"> */}
+                        <Button>Edit Exam</Button>
+                    {/* </div> */}
                 </Link>
                 <Link href="/schedule">
-                    <div className="button">
-                        <button type="button">Delete Exam</button>
-                    </div>
+                    {/* <div className="button"> */}
+                        <Button>Delete Exam</Button>
+                    {/* </div> */}
                 </Link>
             </div>
         </div>
