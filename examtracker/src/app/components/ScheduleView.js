@@ -2,7 +2,8 @@ import React from 'react';
 import "./ScheduleView.css";
 import Link from 'next/link';
 import Button from './Button';
-
+import AddExam from './AddExam';
+import ExamList from './ExamList';
 const ScheduleView = () => {
     const exams = [
         {
@@ -38,10 +39,13 @@ const ScheduleView = () => {
             time: "3:55-5:10 P.M"
         },
     ];
+
     return (
         <div className="schedule-view-container">
-            <h1>Upcoming Exams</h1>
-            <Link href="/addexam"><Button>+ Add Exam</Button></Link>
+            <h1 className="upcoming-exams">Upcoming Exams</h1>
+            <div className ="add-exam-button">
+                <Link href="/addexam"><Button>+ Add Exam</Button></Link>
+            </div>
             <div className="upcoming-exams">
 
                 <div className="exam-cards-container">
@@ -58,12 +62,12 @@ const ScheduleView = () => {
                             <div className="buttons-container">
                                 <Link href="/addexam">
                                     <div className="button">
-                                        <button type="button">Edit Exam</button>
+                                        <Button>Edit Exam</Button>
                                     </div>
                                 </Link>
                                 <Link href="/schedule">
                                     <div className="button">
-                                        <button type="button">Delete Exam</button>
+                                        <Button>Delete Exam</Button>
                                     </div>
                                 </Link>
                             </div>

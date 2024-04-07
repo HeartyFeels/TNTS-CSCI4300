@@ -37,7 +37,6 @@ const AddExam = (props) => {
     const addHandler = (event) => {
         event.preventDefault();
         const exam = {
-            //id: idCounter++,
             name: name,
             subject: subject,
             date: date,
