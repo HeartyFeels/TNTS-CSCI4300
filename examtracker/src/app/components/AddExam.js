@@ -114,7 +114,7 @@ const AddExam = (props) => {
                     onChange={imgChanger}
                     />
                 </div>
-                <Link href="/schedule"><Button type="submit" action={addHandler}>Add Exam</Button></Link>
+                <Link href="/schedule"><Button>Add Exam</Button></Link>
                 </form>
             </Card>
         </div>

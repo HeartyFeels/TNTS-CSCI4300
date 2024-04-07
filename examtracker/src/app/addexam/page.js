@@ -5,20 +5,11 @@ import { useState } from "react";
 import ExamList from "../components/ExamList";
 import Navbar from "../components/NavBar";
 import ScheduleView from "../components/ScheduleView";
-const AddPage = () => {
-    const [exams, setExams] = useState([]);
-    
-    const addHandler = (exam) => {
-        setExams((prevExam) => {
-        return [exam, ...prevExam];
-        })
-    }
-
+const AddPage = (props) => {
     return (
         <div>
             <Navbar isActive={true} />
-            <ExamList items={exams}/>
-            <AddExam onAddExam={addHandler}/>
+            <AddExam onAddExam={props.onAddExam}/>
         </div>
     )
 }
