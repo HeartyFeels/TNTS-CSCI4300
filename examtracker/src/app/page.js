@@ -1,12 +1,32 @@
 "use client"
 
 import Navbar from "./components/NavBar";
-import AddExam from "./components/AddExam";
-import EditExam from "./components/EditExam";
 import WelcomePage from "./components/WelcomePage"
-import Link from "next/link";
-import ScheduleView from "./components/ScheduleView";
 import { useState } from "react";
+
+const express = require('express');
+const app = express();
+app.get('/', (req, res) => res.send('Hello world!'));
+const port = process.env.PORT || 8082;
+
+const mongoose = require('mongoose');
+const cors = require('cors');
+app.use(cors({origin: true, credentials: true}));
+app.use(express.json({etended: false}));
+
+const conn_str = 'mongodb+srv://taj30846:kYMxLlwo4DGJALVW@knowflow.sbfx6bw.mongodb.net/'
+mongoose.set('strictQuery', false);
+mongoose.connect(conn_str).then(() => {
+    app.listen(port, () => console.log(`Server running on port ${port}`));
+    console.log(`MongoDB Connection Suceeded...`);
+})
+.catch(err => {
+    console.log(`Error in DB Connection ${err}`);
+});
+
+//PASSWORD FOR CLUSTER: DO NOT DELETE
+//kYMxLlwo4DGJALVW
+
 function Home () {
   const [isActive, setIsActive] = useState(false);
   
@@ -19,8 +39,6 @@ function Home () {
     <div className="home">
       <Navbar isActive={false} />
       <WelcomePage />
-      {/* <ScheduleView /> */}
-
     </div>
   )
 }
