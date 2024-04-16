@@ -18,5 +18,9 @@ mongoose.connect(conn_str).then(() => {
     console.log(`Error in DB Connection ${err}`);
 });
 
+app.get("/user/:id", (req, res) => {
+    res.send(`user ${req.params.id}`)
+})
+
 //PASSWORD FOR CLUSTER: DO NOT DELETE
 //kYMxLlwo4DGJALVW
