@@ -8,6 +8,7 @@ import Card from "./Card";
 import Link from "next/link";
 
 import {useState} from 'react';
+import axios from "axios";
 
 const AddExam = (props) => {
     const [name, setName] = useState("");
@@ -36,33 +37,61 @@ const AddExam = (props) => {
         setImg(event.target.value);
     }
 
+    // const submitHandler = (event) => {
+    //     event.preventDefault();
+    //     const exam = {
+    //         id: Math.random().toString(),
+    //         name: name,
+    //         subject: subject,
+    //         date: date,
+    //         location: location,
+    //         img: img
+    //     }
+
+    //     console.log(exam);
+    //     //lifting state
+    //    // props.onAddExam(exam);
+
+    //     document.getElementById("name").value = "";
+    //     document.getElementById("subject").value = "";
+    //     document.getElementById("date").value = "";
+    //     document.getElementById("location").value = "";
+    //     document.getElementById("img").value = "";
+        
+    //     setName('');
+    //     setSubject('');
+    //     setDate('');
+    //     setLocation('');
+    //     setImg('');
+    // }
+
     const submitHandler = (event) => {
         event.preventDefault();
-        const exam = {
-            id: Math.random().toString(),
-            name: name,
-            subject: subject,
-            date: date,
-            location: location,
-            img: img
-        }
 
-        console.log(exam);
-        //lifting state
-       // props.onAddExam(exam);
+        axios
+            .post('http://localhost:8082/api/exams', {
+                name: name,
+                    subject: subject,
+                    date: date,
+                    location: location,
+                    img: img
+            })
+            .then((res) => {
+                setExam({
+                    name: '',
+                    subject: '',
+                    date: '',
+                    location: '',
+                    img: ''
+                });
 
-        document.getElementById("name").value = "";
-        document.getElementById("subject").value = "";
-        document.getElementById("date").value = "";
-        document.getElementById("location").value = "";
-        document.getElementById("img").value = "";
-        
-        setName('');
-        setSubject('');
-        setDate('');
-        setLocation('');
-        setImg('');
-    }
+                router.push('/')
+            })
+            .catch((err) => {
+                console.log("Error in creating exam")
+            });
+
+    };
     
     return (
         <div>
