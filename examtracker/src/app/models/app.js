@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const port = process.env.PORT || 8082;
-const exams = require("./routes/api/exams")
+const exams = require("../routes/api/exams")
 
 const mongoose = require('mongoose');
 const cors = require('cors');
