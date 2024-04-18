@@ -10,7 +10,7 @@ const LoginBox = () => {
         <div>
             <Card>
                 <h1>Log In</h1>
-                <p ref={errorReference} classname={errorMessage ? "errorMessage" : "offscreen"} aria-live="assertive">{errorMessage}</p>
+                
 
                 <form onSubmit={submitHandler}>
                     <div className="row">
