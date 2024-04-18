@@ -1,45 +1,41 @@
-import Row from "./Row";
+import "./Row.css"
 import Button from "./Button";
 import Card from "./Card";
 import Link from "next/link";
 
-let firstName =  {
-    name: "First Name: ",
-    type: "text"
-}
-
-let lastName =  {
-    name: "Last Name: ",
-    type: "text"
-}
-
-let username =  {
-    name: "Username: ",
-    type: "text"
-}
-
-let password =  {
-    name: "Password: ",
-    type: "password"
-}
-
-let signUpButton = {
-    label: "Create an Account",
-    action: {}
-}
 
 const SignUpBox = (props) => {
     return (
         <div>
             <Card>
                 <h1>Sign Up</h1>
-                <Row item={firstName} />
+                <div className="row">
+                    <label>First Name: </label>
+                    <input 
+                    required type="text"
+                    />
+                </div>
 
-                <Row item={lastName} />
+                <div className="row">
+                    <label>Last Name: </label>
+                    <input 
+                    required type="text" 
+                    />
+                </div>
 
-                <Row item={username} />
+                <div className="row">
+                    <label>Username: </label>
+                    <input 
+                    required type="text"
+                    />
+                </div>
 
-                <Row item={password} />
+                <div className="row">
+                    <label>Password: </label>
+                    <input 
+                    required type="password"
+                    />
+                </div>
 
                 <Link href="/schedule" onClick= {props.setActive} ><Button>Sign Up</Button></Link>
                 <p id="option">Already have an account? Log in <Link href="/login">here</Link> </p>
