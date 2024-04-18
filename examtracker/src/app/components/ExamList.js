@@ -24,7 +24,7 @@ const ExamList = () => {
                     subject = {exam.subject}
                     date = {exam.date}
                     location = {exam.location}
-                    img = {exam.img}
+                    img = {exam.image}
                 />
             ))}
         </div>
