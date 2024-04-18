@@ -1,8 +1,23 @@
+import axios from "axios"
 import ExamCard from "./ExamCard"
-const ExamList = (props) => {
+import { useEffect, useState } from "react"
+const ExamList = () => {
+    const [exams, setExams] = useState([])
+
+    useEffect(() => {
+        axios
+        .get('http://localhost:8082/api/exams')
+        .then((res) => {
+            setExams(res.data);
+        })
+        .catch((err) => {
+            console.log("Error from ExamList")
+        });
+    }, []);
+
     return (
         <div>
-            {props.items.map((exam) => (
+            {exams.map((exam) => (
                 <ExamCard 
                     key = {exam.id}
                     name = {exam.name}
