@@ -71,10 +71,10 @@ const AddExam = (props) => {
         axios
             .post('http://localhost:8082/api/exams', {
                 name: name,
-                    subject: subject,
-                    date: date,
-                    location: location,
-                    img: img
+                subject: subject,
+                date: date,
+                location: location,
+                image: img
             })
             .then((res) => {
                 setExam({
