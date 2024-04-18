@@ -3,6 +3,17 @@ import Button from "./Button";
 import Card from "./Card";
 import Link from "next/link";
 
+// const User = require('../../models/User');
+// userRouter.post('/signup', async (req, res) => {
+//     try {
+//         const {firstName, lastName, username, password} = req.body;
+//     }
+// })
+
+
+
+
+
 
 const SignUpBox = (props) => {
     return (
