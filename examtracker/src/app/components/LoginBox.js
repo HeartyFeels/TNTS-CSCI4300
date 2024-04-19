@@ -1,18 +1,59 @@
 "use client"
-
 import Button from "./Button";
 import Card from "./Card";
 import Link from "next/link";
 import "./Row.css"
+import axios from 'axios';
+import UserContext from "./context/UserContext";
+import { useRouter } from "next/navigation";
+import {useState, useContext, useEffect} from "react";
 
 const LoginBox = () => {
+    const router = useRouter();
+    //Issue with this line of code below
+    const {userData, setUserData} = useContext(UserContext);
+    //
+    useEffect(() => {
+        if (userData.token) {
+            router.push('/');
+        }
+    }, [userData.token, router]);
+
+    const [formData, setFormData] = useState({
+        username: " ",
+        password: " ",
+    });
+
+    
+    const [error, setError] = useState('');
+
+    const handleChange = (e) => {
+        setFormData({
+            ...formData,
+            [e.target.name]: e.target.value,
+        });
+    };
+
+    const handleLogin = async (e) => {
+        e.preventDefault();
+        try {
+            const response = await axios.post('http://localhost:8082/login', formData);
+            setUserData({
+                token: response.data.token,
+                user: response.data.user,
+            });
+            localStorage.setItem('auth-token', response.data.token);
+            router.push('/');
+        } catch (error) {
+            console.error("Login failed:", error);
+        }
+    };
     return (
         <div>
             <Card>
                 <h1>Log In</h1>
-                
-
-                <form onSubmit={submitHandler}>
+                <UserContext>
+                <form onSubmit={handleLogin}>
                     <div className="row">
                         <label>Username: </label>
                         <input
@@ -20,8 +61,7 @@ const LoginBox = () => {
                             id="username"
                             placeholder="Username"
                             ref={userReference}
-                            onChange={(event) => setUser(event.target.value)}
-                            value={user}
+                            onChange={handleChange}
                             required
                         />
                     </div>
@@ -31,18 +71,16 @@ const LoginBox = () => {
                         <input
                             type="password"
                             id="password"
-                            onChange={(event) => setPassword(event.target.value)}
-                            value={password}
+                            onChange={handleChange}
                             required
                         />
                     </div>
-
                     <Button type="submit">Login</Button>
                 </form>
+                </UserContext>
                 <p>Don't have an account yet? Sign up <Link href="/signup">here</Link> </p>
             </Card>
         </div>
-            
     );
 }
 
