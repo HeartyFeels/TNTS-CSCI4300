@@ -5,7 +5,7 @@ import Link from "next/link";
 import "./Row.css"
 import axios from 'axios';
 import UserContext from "./context/UserContext";
-import { useRouter } from "next/navigation";
+import { useRouter } from "next/router";
 import {useState, useContext, useEffect} from "react";
 
 const LoginBox = () => {

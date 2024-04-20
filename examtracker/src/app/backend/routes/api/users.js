@@ -4,7 +4,6 @@ const userRouter = express.Router();
 const jwt = require('jsonwebtoken');
 const auth = require('../../middleware/auth');
 const User = require('../../models/User');
-const router = require('./exams');
 
 //signup route
 userRouter.post('/signup', async (req, res) => {
@@ -18,6 +17,14 @@ userRouter.post('/signup', async (req, res) => {
                 .status(400)
                 .json({msg: "Password should be at least 6 characters"});
         }
+
+        const existingUser = await User.findOne({username});
+        if (existingUser) {
+            return res
+            .status(400)
+            .json({msg: "User with the same username exists"});
+        }
+
         const hashedPassword = await bcryptjs.hash(password, 8);
         const newUser = new User({firstName, lastName, username, password: hashedPassword});
         const savedUser = await newUser.save();
@@ -37,15 +44,22 @@ userRouter.post("/login", auth, async (req, res) => {
             return res.status(400).json({msg: "Please enter all of the fields."});
         } //if
         const user = await User.findOne({username})
+        if (!user) {
+            return res.status(400)
+            .send({msg: "User with this email does not exist"});
+        }
+
         const isMatch = await bcryptjs.compare(password, user.password);
         if (!isMatch) {
             return res.status(400).send({msg: "Incorrect password."});
-        }//if
+        }
+
         const token = jwt.sign({id: user._id}, process.env.JWT_SECRET);
         res.json({token, user: {id: user._id, username: user.username}});
     } catch (err) {
         res.status(500).json({error: err.message});
-    } //catch
+    }
+
 })
 
 userRouter.post("/tokenIsValid", async (req, res) => {
@@ -59,6 +73,7 @@ userRouter.post("/tokenIsValid", async (req, res) => {
         return res.json(true);
     } catch (err) {
         res.status(500).json({error: err.message});
-    } //catch
+    }
 });
+
 module.exports = userRouter;

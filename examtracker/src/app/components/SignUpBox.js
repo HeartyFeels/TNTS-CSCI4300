@@ -9,7 +9,7 @@ import UserContext from "./context/UserContext";
 
 const SignUpBox = () => {
     //Issue with this line of code below: if you comment it out, signup will work!
-    const {setUserData} = useContext(UserContext);
+    const setUserData = useContext(UserContext);
     //
     const [formData, setFormData] = useState({
         firstName: " ",

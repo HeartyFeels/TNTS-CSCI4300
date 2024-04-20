@@ -12,12 +12,13 @@ const UserSchema = new mongoose.Schema({
     username: {
         type: String,
         unique: true,
-        required: true
+        required: true,
+        trim: true
     },
     password: {
         type: String,
         required: true,
-        minLength: 6,
+        minLength: 6
     },
 });
 module.exports = User = mongoose.model('user', UserSchema);
