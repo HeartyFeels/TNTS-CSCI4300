@@ -2,7 +2,7 @@
 
 import Navbar from "./components/NavBar";
 import WelcomePage from "./components/WelcomePage"
-import { UserProvider } from "./components/context/UserContext";
+import { UserProvider } from "./backend/context/UserContext";
 
 
 function Home () {
@@ -10,7 +10,7 @@ function Home () {
       <div className="home">
         <UserProvider>
           <Navbar/>
-          <WelcomePage/>
+          <WelcomePage />
         </UserProvider>
       </div>
   )
