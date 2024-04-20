@@ -8,14 +8,12 @@ import axios from "axios";
 import UserContext from "./context/UserContext";
 
 const SignUpBox = () => {
-    //Issue with this line of code below: if you comment it out, signup will work!
     const setUserData = useContext(UserContext);
-    //
     const [formData, setFormData] = useState({
-        firstName: " ",
-        lastName: " ",
-        username: " ",
-        password: " ",
+        firstName: "",
+        lastName: "",
+        username: "",
+        password: "",
     });
     
     const handleChange = (e) => {
@@ -29,8 +27,8 @@ const SignUpBox = () => {
         e.preventDefault();
 
         try {
-            await axios.post('http://localhost:8082/signup', formData);
-            const loginRes = await axios.post('http://localhost:8082/login', {
+            await axios.post('http://localhost:8082/api/users/signup', formData);
+            const loginRes = await axios.post('http://localhost:8082/api/users/login', {
                 username: formData.username,
                 password: formData.password
             });
@@ -42,11 +40,12 @@ const SignUpBox = () => {
 
             localStorage.setItem('auth-token', loginRes.data.token);
 
-            router.push('/');
+            router.push('/schedule');
         } catch (error) {
             console.error('Signup failed:', error);
         } //catch
     };
+
     return (
         
         <div>
@@ -85,7 +84,7 @@ const SignUpBox = () => {
                         />
                     </div>
 
-                    <Link href="/schedule"><Button type="submit">Sign Up</Button></Link>
+                    <Button type="submit" onClick={handleSubmit}>Sign Up</Button>
                 </form>
             <p id="option">Already have an account? Log in <Link href="/login">here</Link> </p>
             
