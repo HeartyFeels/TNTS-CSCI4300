@@ -4,46 +4,50 @@ import Card from "./Card";
 import Link from "next/link";
 import "./Row.css"
 import axios from 'axios';
-import UserContext from "./context/UserContext";
+import UserContext from "../backend/context/UserContext";
 import { useRouter } from "next/navigation";
 import {useState, useContext, useEffect} from "react";
 
 const LoginBox = () => {
     const router = useRouter();
-    //Issue with this line of code below
-    ({ userData, setUserData } = useContext(UserContext));
-    //
+    const [userData, setUserData ] = useState(UserContext);
+    
     useEffect(() => {
         if (userData.token) {
             router.push('/');
         }
     }, [userData.token, router]);
 
-    const [formData, setFormData] = useState({
-        username: " ",
-        password: " ",
-    });
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
+
 
     
     const [error, setError] = useState('');
 
-    const handleChange = (e) => {
-        setFormData({
-            ...formData,
-            [e.target.name]: e.target.value,
-        });
-    };
+    const usernameChanger = (event) => {
+        setUsername(event.target.value);
+    }
+    const passwordChanger = (event) => {
+        setPassword(event.target.value);
+    }
 
     const handleLogin = async (e) => {
         e.preventDefault();
+        const formData = {
+            username: username,
+            password: password
+        }
+
         try {
-            const response = await axios.post('http://localhost:8082/login', formData);
+            console.log(formData);
+            const response = await axios.post('http://localhost:8082/api/users/login', formData);
             setUserData({
                 token: response.data.token,
                 user: response.data.user,
             });
             localStorage.setItem('auth-token', response.data.token);
-            router.push('/');
+            router.push('/schedule');
         } catch (error) {
             console.error("Login failed:", error);
         }
@@ -59,7 +63,7 @@ const LoginBox = () => {
                             type="text"
                             id="username"
                             placeholder="Username"
-                            onChange={handleChange}
+                            onChange={usernameChanger}
                             required
                         />
                     </div>
@@ -69,11 +73,11 @@ const LoginBox = () => {
                         <input
                             type="password"
                             id="password"
-                            onChange={handleChange}
+                            onChange={passwordChanger}
                             required
                         />
                     </div>
-                    <Button type="submit">Login</Button>
+                    <Button type="submit" onClick={handleLogin}>Login</Button>
                 </form>
                 <p>Don't have an account yet? Sign up <Link href="/signup">here</Link> </p>
             </Card>

@@ -3,7 +3,7 @@
 import "./NavBar.css"
 import Link from "next/link";
 import { useState } from "react";
-import UserContext from "./context/UserContext";
+import UserContext from "../backend/context/UserContext";
 
 import { useRouter } from "next/router";
 import Button from "./Button";

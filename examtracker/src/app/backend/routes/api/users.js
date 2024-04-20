@@ -46,15 +46,17 @@ userRouter.post("/login", auth, async (req, res) => {
         const user = await User.findOne({username})
         if (!user) {
             return res.status(400)
-            .send({msg: "User with this email does not exist"});
+            .send({msg: "User with this username does not exist"});
         }
 
         const isMatch = await bcryptjs.compare(password, user.password);
+        
         if (!isMatch) {
             return res.status(400).send({msg: "Incorrect password."});
         }
 
         const token = jwt.sign({id: user._id}, process.env.JWT_SECRET);
+        
         res.json({token, user: {id: user._id, username: user.username}});
     } catch (err) {
         res.status(500).json({error: err.message});

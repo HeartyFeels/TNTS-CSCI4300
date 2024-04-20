@@ -5,29 +5,41 @@ import Card from "./Card";
 import Link from "next/link";
 import {useState, useContext} from 'react';
 import axios from "axios";
-import UserContext from "./context/UserContext";
+import UserContext from "../backend/context/UserContext";
+import { userAgent } from "next/server";
 
 const SignUpBox = () => {
-    const setUserData = useContext(UserContext);
-    const [formData, setFormData] = useState({
-        firstName: "",
-        lastName: "",
-        username: "",
-        password: "",
-    });
-    
-    const handleChange = (e) => {
-        setFormData({
-            ...formData,
-            [e.target.name]: e.target.value,
-        });
-    };
+    const [userData, setUserData] = useState(UserContext);
+    const [firstName, setFirstName] = useState("");
+    const [lastName, setLastName] = useState("");
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
+
+    const firstNameChanger = (event) => {
+        setFirstName(event.target.value);
+    }
+    const lastNameChanger = (event) => {
+        setLastName(event.target.value);
+    }
+    const usernameChanger = (event) => {
+        setUsername(event.target.value);
+    }
+    const passwordChanger = (event) => {
+        setPassword(event.target.value);
+    }
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        const formData = {
+            firstName: firstName,
+            lastName: lastName,
+            username: username,
+            password: password
+        }
 
         try {
             await axios.post('http://localhost:8082/api/users/signup', formData);
+            
             const loginRes = await axios.post('http://localhost:8082/api/users/login', {
                 username: formData.username,
                 password: formData.password
@@ -56,7 +68,8 @@ const SignUpBox = () => {
                         <label>First Name: </label>
                         <input 
                         required type="text"
-                        onChange={handleChange}
+                        id="firstname"
+                        onChange={firstNameChanger}
                         />
                     </div>
 
@@ -64,7 +77,8 @@ const SignUpBox = () => {
                         <label>Last Name: </label>
                         <input 
                         required type="text" 
-                        onChange={handleChange}
+                        id="lastname"
+                        onChange={lastNameChanger}
                         />
                     </div>
 
@@ -72,7 +86,8 @@ const SignUpBox = () => {
                         <label>Username: </label>
                         <input 
                         required type="text"
-                        onChange={handleChange}
+                        id="username"
+                        onChange={usernameChanger}
                         />
                     </div>
 
@@ -80,7 +95,8 @@ const SignUpBox = () => {
                         <label>Password: </label>
                         <input 
                         required type="password"
-                        onChange={handleChange}
+                        id="password"
+                        onChange={passwordChanger}
                         />
                     </div>
 
