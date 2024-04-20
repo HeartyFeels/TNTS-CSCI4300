@@ -51,13 +51,8 @@ const SignUpBox = () => {
             });
 
             localStorage.setItem('auth-token', loginRes.data.token);
-<<<<<<< HEAD
-            
-            router.push('/');
-=======
 
             router.push('/schedule');
->>>>>>> 3ddf3a84b8efd60db3694c04c9477d6ef6872453
         } catch (error) {
             console.error('Signup failed:', error);
         } //catch
