@@ -4,6 +4,7 @@ const userRouter = express.Router();
 const jwt = require('jsonwebtoken');
 const auth = require('../../middleware/auth');
 const User = require('../../models/User');
+const router = require('./exams');
 
 //signup route
 userRouter.post('/signup', async (req, res) => {
@@ -29,7 +30,7 @@ userRouter.post('/signup', async (req, res) => {
 
 //login route
 
-userRouter.post("/login", async (req, res) => {
+userRouter.post("/login", auth, async (req, res) => {
     try {
         const{username, password} = req.body;
         if (!username || !password) {
@@ -49,7 +50,7 @@ userRouter.post("/login", async (req, res) => {
 
 userRouter.post("/tokenIsValid", async (req, res) => {
     try {
-        const token = req.header("Authorizatiom");
+        const token = req.header("Authorization");
         if (!token) return res.json(false);
         const verified = jwt.verify(tokenParts[1], process.env.JWT_SECRET);
         if (!verified) return res.json(false);

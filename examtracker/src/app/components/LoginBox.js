@@ -11,7 +11,7 @@ import {useState, useContext, useEffect} from "react";
 const LoginBox = () => {
     const router = useRouter();
     //Issue with this line of code below
-    const {userData, setUserData} = useContext(UserContext);
+    ({ userData, setUserData } = useContext(UserContext));
     //
     useEffect(() => {
         if (userData.token) {
@@ -52,7 +52,6 @@ const LoginBox = () => {
         <div>
             <Card>
                 <h1>Log In</h1>
-                <UserContext>
                 <form onSubmit={handleLogin}>
                     <div className="row">
                         <label>Username: </label>
@@ -60,7 +59,6 @@ const LoginBox = () => {
                             type="text"
                             id="username"
                             placeholder="Username"
-                            ref={userReference}
                             onChange={handleChange}
                             required
                         />
@@ -77,7 +75,6 @@ const LoginBox = () => {
                     </div>
                     <Button type="submit">Login</Button>
                 </form>
-                </UserContext>
                 <p>Don't have an account yet? Sign up <Link href="/signup">here</Link> </p>
             </Card>
         </div>

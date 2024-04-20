@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router();
 
 const Exam = require("../../models/Exam")
+const auth = require('../../middleware/auth');
 
 router.get("/", (req, res) => {
     Exam.find()
@@ -22,8 +23,8 @@ router.post("/", (req, res) => {
     .catch((err) => res.status(400).json({error: "Unable to add exam"}))
 })
 
-router.delete("/:id", (req, res) => {
-    Exam.findByIdAndDelete(req.params.id)
+router.delete("/:id", auth, (req, res) => {
+    Exam.findByIdAndDelete(req.params.id, req.body)
     .then((exam) => res.json({msg: 'Exam deleted successfully'}))
     .catch((err) => res.status(404).json({error: "No such item"}))
 })
