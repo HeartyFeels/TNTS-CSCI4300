@@ -28,10 +28,9 @@ userRouter.post('/signup', async (req, res) => {
         const hashedPassword = await bcryptjs.hash(password, 8);
         const newUser = new User({firstName, lastName, username, password: hashedPassword});
         const savedUser = await newUser.save();
-        
-        res.json(savedUser);
+        return res.json(savedUser);
     } catch (err) {
-        res.status(500).json({error: err.message});
+        return res.status(500).json({error: err.message});
     }
 });
 
@@ -57,9 +56,9 @@ userRouter.post("/login", auth, async (req, res) => {
 
         const token = jwt.sign({id: user._id}, process.env.JWT_SECRET);
         
-        res.json({token, user: {id: user._id, username: user.username}});
+        return res.json({token, user: {id: user._id, username: user.username}});
     } catch (err) {
-        res.status(500).json({error: err.message});
+       return res.status(500).json({error: err.message});
     }
 
 })
@@ -74,7 +73,7 @@ userRouter.post("/tokenIsValid", async (req, res) => {
         if (!user) return res.json(false);
         return res.json(true);
     } catch (err) {
-        res.status(500).json({error: err.message});
+        return res.status(500).json({error: err.message});
     }
 });
 
