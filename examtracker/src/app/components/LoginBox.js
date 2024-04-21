@@ -47,7 +47,7 @@ const LoginBox = () => {
                 user: response.data.user,
             });
             localStorage.setItem('auth-token', response.data.token);
-            router.push('/schedule');
+            router.push('/');
         } catch (error) {
             console.error("Login failed:", error);
         }
@@ -63,6 +63,7 @@ const LoginBox = () => {
                             type="text"
                             id="username"
                             placeholder="Username"
+                            value={username}
                             onChange={usernameChanger}
                             required
                         />
@@ -73,11 +74,12 @@ const LoginBox = () => {
                         <input
                             type="password"
                             id="password"
+                            value={password}
                             onChange={passwordChanger}
                             required
                         />
                     </div>
-                    <Button type="submit" onClick={handleLogin}>Login</Button>
+                    <Button type="submit">Login</Button>
                 </form>
                 <p>Don't have an account yet? Sign up <Link href="/signup">here</Link> </p>
             </Card>
