@@ -10,11 +10,11 @@ import {useState, useContext, useEffect} from "react";
 
 const LoginBox = () => {
     const router = useRouter();
-    const [userData, setUserData ] = useState(UserContext);
+    const {userData, setUserData} = useContext(UserContext);
     
     useEffect(() => {
         if (userData.token) {
-            router.push('/');
+            router.push('/schedule');
         }
     }, [userData.token, router]);
 
@@ -47,7 +47,7 @@ const LoginBox = () => {
                 user: response.data.user,
             });
             localStorage.setItem('auth-token', response.data.token);
-            router.push('/');
+            router.push('/schedule');
         } catch (error) {
             console.error("Login failed:", error);
         }

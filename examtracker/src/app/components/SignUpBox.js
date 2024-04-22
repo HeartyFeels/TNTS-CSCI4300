@@ -6,10 +6,9 @@ import Link from "next/link";
 import {useState, useContext} from 'react';
 import axios from "axios";
 import UserContext from "../backend/context/UserContext";
-import { userAgent } from "next/server";
 
 const SignUpBox = () => {
-    const [userData, setUserData] = useState(UserContext);
+    const {setUserData} = useContext(UserContext);
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
     const [username, setUsername] = useState("");
@@ -52,7 +51,7 @@ const SignUpBox = () => {
 
             localStorage.setItem('auth-token', loginRes.data.token);
 
-            router.push('/');
+            router.push('/schedule');
         } catch (error) {
             console.error('Signup failed:', error);
         } //catch
