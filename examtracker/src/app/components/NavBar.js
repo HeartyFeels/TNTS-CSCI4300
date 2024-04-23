@@ -20,21 +20,38 @@ export default function Navbar() {
     
     return (
         <nav className="nav">
-            <a href="/schedule" className="site-title">KnowFlow</a>
+            <ul>
                     {userData.token ? (
                         <div>
+                            <li>
+                                <a href="/schedule" className="site-title">KnowFlow</a>
+                            </li>
+                            <li>
                                 <Link href="/schedule">Your Schedule</Link>
+                            </li>
+                            <li>
                                 <Link href="/addexam">Add an Exam</Link>
+                            </li>
+                            <li>
                                 <Link href="/">
                                     <Button onClick={handleLogout}>Logout</Button>
                                 </Link>
+                            </li>
                         </div>
                     ) : (
                         <div>
+                            <li>
+                                <a href="/" className="site-title">KnowFlow</a>
+                            </li>
+                            <li>
                                 <Link href="/signup">Signup</Link>
+                            </li>
+                            <li>
                                 <Link href="/login">Login</Link>
+                            </li>
                         </div>
                     )}
+                </ul>
         </nav>
     )
 }
