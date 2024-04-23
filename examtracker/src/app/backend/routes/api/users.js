@@ -5,6 +5,10 @@ const jwt = require('jsonwebtoken');
 const auth = require('../../middleware/auth');
 const User = require('../../models/User');
 
+//trying something out
+import * as dotenv from 'dotenv';
+dotenv.config();
+
 //signup route
 userRouter.post('/signup', async (req, res) => {
     try {
@@ -39,14 +43,18 @@ userRouter.post('/signup', async (req, res) => {
 userRouter.post("/login", async (req, res) => {
     try {
         const {username, password} = req.body;
+        console.log(req.body); //pass
+        console.log(process.env.JWT_SECRET);
         if (!username || !password) {
             return res.status(400).json({msg: "Please enter all of the fields."});
         }
         const user = await User.findOne({username});
+        console.log(user); //does not print, error should be between first console and this one
         if (!user) {
             return res.status(400).send({msg: "User with this username does not exist"});
         }
         const isMatch = await bcryptjs.compare(password, user.password);
+        console.log(isMatch);
         
         if (!isMatch) {
             return res.status(400).send({msg: "Incorrect password."});
