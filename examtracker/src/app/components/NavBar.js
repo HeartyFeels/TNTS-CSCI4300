@@ -26,29 +26,33 @@ export default function Navbar() {
                             <li>
                                 <a href="/schedule" className="site-title">KnowFlow</a>
                             </li>
-                            <li>
-                                <Link href="/schedule">Your Schedule</Link>
-                            </li>
-                            <li>
-                                <Link href="/addexam">Add an Exam</Link>
-                            </li>
-                            <li>
-                                <Link href="/">
-                                    <Button onClick={handleLogout}>Logout</Button>
-                                </Link>
-                            </li>
+                            <div className="loggedIn">
+                                <li>
+                                    <Link className= "loggedIn-nav" href="/schedule">Your Schedule</Link>
+                                </li>
+                                <li>
+                                    <Link className="loggedIn-nav" href="/addexam">Add an Exam</Link>
+                                </li>
+                                <li>
+                                    <Link href="/">
+                                        <Button className="logout" onClick={handleLogout}>Logout</Button>
+                                    </Link>
+                                </li>
+                            </div>
                         </div>
                     ) : (
                         <div>
                             <li>
                                 <a href="/" className="site-title">KnowFlow</a>
                             </li>
-                            <li>
-                                <Link href="/signup">Signup</Link>
-                            </li>
-                            <li>
-                                <Link href="/login">Login</Link>
-                            </li>
+                            <div className="loggedOut">
+                                <li>
+                                    <Link className="loggedOut-nav" href="/signup">Signup</Link>
+                                </li>
+                                <li>
+                                    <Link className="loggedOut-nav" href="/login">Login</Link>
+                                </li>
+                            </div>
                         </div>
                     )}
                 </ul>
