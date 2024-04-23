@@ -39,20 +39,12 @@ body{
 .nav li.active{
     background-color: #555;
 }
-/* .loggedIn-nav {
-
-}
-.loggedOut-nav {
-    
-    
-} */
 .loggedIn {
     display: flex;
-
 }
 .loggedOut {
     display: flex;
-    
+
     
 }
 /* .logout {

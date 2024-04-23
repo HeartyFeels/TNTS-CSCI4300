@@ -28,10 +28,10 @@ export default function Navbar() {
                             </li>
                             <div className="loggedIn">
                                 <li>
-                                    <Link className= "loggedIn-nav" href="/schedule">Your Schedule</Link>
+                                    <Link href="/schedule">Your Schedule</Link>
                                 </li>
                                 <li>
-                                    <Link className="loggedIn-nav" href="/addexam">Add an Exam</Link>
+                                    <Link href="/addexam">Add an Exam</Link>
                                 </li>
                                 <li>
                                     <Link href="/">
@@ -47,10 +47,10 @@ export default function Navbar() {
                             </li>
                             <div className="loggedOut">
                                 <li>
-                                    <Link className="loggedOut-nav" href="/signup">Signup</Link>
+                                    <Link href="/signup">Signup</Link>
                                 </li>
                                 <li>
-                                    <Link className="loggedOut-nav" href="/login">Login</Link>
+                                    <Link href="/login">Login</Link>
                                 </li>
                             </div>
                         </div>
