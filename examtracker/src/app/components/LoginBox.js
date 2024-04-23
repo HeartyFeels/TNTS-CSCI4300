@@ -40,7 +40,6 @@ const LoginBox = () => {
         }
 
         try {
-            console.log(formData);
             const response = await axios.post('http://localhost:8082/api/users/login', formData);
             setUserData({
                 token: response.data.token,

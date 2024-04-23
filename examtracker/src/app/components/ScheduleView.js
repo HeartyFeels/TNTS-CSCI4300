@@ -3,6 +3,7 @@ import "./ScheduleView.css";
 import Link from 'next/link';
 import Button from './Button';
 import ExamList from './ExamList';
+
 const ScheduleView = () => {
     const exams = [
         {

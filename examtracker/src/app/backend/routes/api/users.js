@@ -5,10 +5,6 @@ const jwt = require('jsonwebtoken');
 const auth = require('../../middleware/auth');
 const User = require('../../models/User');
 
-//trying something out
-import * as dotenv from 'dotenv';
-dotenv.config();
-
 //signup route
 userRouter.post('/signup', async (req, res) => {
     try {
@@ -59,7 +55,7 @@ userRouter.post("/login", async (req, res) => {
         if (!isMatch) {
             return res.status(400).send({msg: "Incorrect password."});
         }
-        const token = jwt.sign({id: user._id}, process.env.JWT_SECRET);
+        const token = jwt.sign({id: user._id}, "helloworld");
         res.send({token, user: {id: user._id, username: user.username}});
     } catch (err) {
        return res.status(500).json({error: err.message});
@@ -71,7 +67,7 @@ userRouter.post("/tokenIsValid", async (req, res) => {
     try {
         const token = req.header("Authorization");
         if (!token) return res.json(false);
-        const verified = jwt.verify(tokenParts[1], process.env.JWT_SECRET);
+        const verified = jwt.verify(tokenParts[1], "helloworld");
         if (!verified) return res.json(false);
         const user = await User.findById(verified.id);
         if (!user) return res.json(false);

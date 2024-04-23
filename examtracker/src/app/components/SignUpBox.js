@@ -5,10 +5,14 @@ import Card from "./Card";
 import Link from "next/link";
 import {useState, useContext} from 'react';
 import axios from "axios";
+import { useRouter } from "next/navigation";
 import UserContext from "../backend/context/UserContext";
 
 const SignUpBox = () => {
+    const srouter = useRouter();
+    
     const {setUserData} = useContext(UserContext);
+    
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
     const [username, setUsername] = useState("");
@@ -38,7 +42,7 @@ const SignUpBox = () => {
 
         try {
             await axios.post('http://localhost:8082/api/users/signup', formData);
-            
+
             const loginRes = await axios.post('http://localhost:8082/api/users/login', {
                 username: formData.username,
                 password: formData.password
@@ -51,7 +55,7 @@ const SignUpBox = () => {
 
             localStorage.setItem('auth-token', loginRes.data.token);
 
-            router.push('/schedule');
+            srouter.push('/schedule');
         } catch (error) {
             console.error('Signup failed:', error);
         } //catch
