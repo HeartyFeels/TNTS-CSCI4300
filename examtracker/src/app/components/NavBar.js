@@ -28,7 +28,9 @@ export default function Navbar() {
                 
                 <li>
                     {userData.token ? (
-                        <Button onClick={handleLogout}>Logout</Button>
+                        <Link href="/">
+                            <Button onClick={handleLogout}>Logout</Button>
+                        </Link>
                     ) : (
                         <Link href="/login">Login</Link>
                     )}
