@@ -2,45 +2,60 @@
 
 import "./NavBar.css"
 import Link from "next/link";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import UserContext from "../backend/context/UserContext";
+import { useRouter } from "next/navigation";
+import Button from "./Button";
 
+export default function Navbar() {
+    const { userData, setUserData } = useContext(UserContext);
+    const router = useRouter();
 
-function NavBarBeforeLogin () {
-    return (
-        <>
-            <li>
-                <Link href="/signup">Signup</Link>
-            </li>
-            
-            <li>
-                <Link href="/login">Login</Link>
-            </li>
-        </>
-    )
-}
-
-
-function NavBarAfterLogin() {
-    return (
-        <>
-            <li>
-                <Link href="/schedule">Schedule</Link>
-            </li>
-
-            <li>
-                <Link href="/">Logout</Link>
-            </li>
-        </>
-    )
-}
-
-export default function Navbar(props) {
+    const handleLogout = async (e) => {
+        e.preventDefault();
+        setUserData({token: undefined, user: undefined});
+        localStorage.removeItem('auth-token');
+        router.push('/');
+    };
+    
     return (
         <nav className="nav">
-            <a href="/" className="site-title">KnowFlow</a>
             <ul>
-                {props.isActive ? <NavBarAfterLogin /> :  <NavBarBeforeLogin />}
-            </ul>
+                    {userData.token ? (
+                        <div>
+                            <li>
+                                <a href="/schedule" className="site-title">KnowFlow</a>
+                            </li>
+                            <div className="loggedIn">
+                                <li>
+                                    <Link href="/schedule">Your Schedule</Link>
+                                </li>
+                                <li>
+                                    <Link href="/addexam">Add an Exam</Link>
+                                </li>
+                                <li>
+                                    <Link href="/">
+                                        <Button className="logout" onClick={handleLogout}>Logout</Button>
+                                    </Link>
+                                </li>
+                            </div>
+                        </div>
+                    ) : (
+                        <div>
+                            <li>
+                                <a href="/" className="site-title">KnowFlow</a>
+                            </li>
+                            <div className="loggedOut">
+                                <li>
+                                    <Link href="/signup">Signup</Link>
+                                </li>
+                                <li>
+                                    <Link href="/login">Login</Link>
+                                </li>
+                            </div>
+                        </div>
+                    )}
+                </ul>
         </nav>
     )
 }
