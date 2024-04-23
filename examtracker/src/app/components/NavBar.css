@@ -11,12 +11,12 @@ body{
     color: white;
 }
 .site-title {
-    font-size: 2rem;
+    font-size: 3rem;
 }
 
 .nav ul{
     padding: 0;
-    margin: 0;
+    margin: auto;
     overflow: hidden;
     list-style: none;
 }
@@ -38,8 +38,10 @@ body{
 }
 .loggedIn li {
     float: right;
+    font-size: 1.5em;
 }
 .loggedOut li {
     float: right;
     align-items: center;
+    font-size: 1.5em;
 }
