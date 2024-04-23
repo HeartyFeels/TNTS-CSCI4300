@@ -2,21 +2,22 @@
 
 import "./NavBar.css"
 import Link from "next/link";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import UserContext from "../backend/context/UserContext";
-
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import Button from "./Button";
 
 export default function Navbar() {
-    //const {userData, setUserData} = ;
-    // const router = useRouter();
+    const { userData, setUserData } = useContext(UserContext);
+    const router = useRouter();
 
-    // const handleLogout = () => {
-    //     setUserData({token: undefined, user: undefined});
-    //     localStorage.removeItem('auth-token');
-    //     router.push('/login');
-    // }
+    const handleLogout = async (e) => {
+        e.preventDefault();
+        setUserData({token: undefined, user: undefined});
+        localStorage.removeItem('auth-token');
+        router.push('/');
+    };
+    
     return (
         <nav className="nav">
             <a href="/" className="site-title">KnowFlow</a>
@@ -26,7 +27,12 @@ export default function Navbar() {
                 </li>
                 
                 <li>
-                    <Link href="/login">Login</Link>
+                    {userData.token ? (
+                        <Button onClick={handleLogout}>Logout</Button>
+                    ) : (
+                        <Link href="/login">Login</Link>
+                    )}
+                    
                 </li>
             </ul>
         </nav>
