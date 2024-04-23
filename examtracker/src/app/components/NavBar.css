@@ -9,8 +9,6 @@ body{
 .nav {
     background-color: plum;
     color: white;
-    display: grid;
-    grid-template-columns: 4fr 1fr 1fr;
 }
 .site-title {
     font-size: 2rem;
@@ -19,9 +17,8 @@ body{
 .nav ul{
     padding: 0;
     margin: 0;
+    overflow: hidden;
     list-style: none;
-    display: grid;
-    grid-template-columns: 4fr 1fr 1fr;
 }
 
 .nav a{
@@ -39,14 +36,10 @@ body{
 .nav li.active{
     background-color: #555;
 }
-.loggedIn {
-    display: flex;
+.loggedIn li {
+    float: right;
 }
-.loggedOut {
-    display: flex;
-
-    
+.loggedOut li {
+    float: right;
+    align-items: center;
 }
-/* .logout {
-
-} */
