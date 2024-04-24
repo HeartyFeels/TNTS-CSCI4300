@@ -39,9 +39,18 @@ body{
 }
 .loggedIn li {
     float: right;
+    align-items: center;
+    font-size: 1.5em;
 }
 .loggedOut li {
     float: right;
     align-items: center;
     font-size: 1.5em;
+}
+
+.loggedIn button {
+    display: inline;
+    background-color: #F178B6;
+    padding: 5px;
+    font-size: 15px;
 }

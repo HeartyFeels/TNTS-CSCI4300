@@ -28,16 +28,15 @@ export default function Navbar() {
                             </li>
                             <div className="loggedIn">
                                 <li>
-                                    <Link href="/schedule">Your Schedule</Link>
-                                </li>
-                                <li>
-                                    <Link href="/addexam">Add an Exam</Link>
-                                </li>
-                                <li>
                                     <Link href="/">
-                                        <Button className="logout" onClick={handleLogout}>Logout</Button>
+                                        <button className="logout" onClick={handleLogout}>Logout</button>
                                     </Link>
                                 </li>
+                                
+                                <li>
+                                    <Link href="/schedule">Your Schedule</Link>
+                                </li>
+                                
                             </div>
                         </div>
                     ) : (
