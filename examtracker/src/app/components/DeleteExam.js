@@ -28,7 +28,6 @@ const DeleteExam = (props) => {
         <div>
             <Card>
                 <h1>Delete Exam</h1>
-                
                 <div className="row">
                     <label>Exam ID: </label>
                     <input 
