@@ -20,9 +20,6 @@ const LoginBox = () => {
 
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
-
-
-    
     const [error, setError] = useState('');
 
     const usernameChanger = (event) => {
@@ -38,7 +35,6 @@ const LoginBox = () => {
             username: username,
             password: password
         }
-
         try {
             const response = await axios.post('http://localhost:8082/api/users/login', formData);
             setUserData({
@@ -48,7 +44,7 @@ const LoginBox = () => {
             localStorage.setItem('auth-token', response.data.token);
             router.push('/schedule');
         } catch (error) {
-            console.error("Login failed:", error);
+            alert("Invalid username or password.");
         }
     };
     return (
