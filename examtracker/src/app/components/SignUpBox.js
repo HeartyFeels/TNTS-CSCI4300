@@ -56,10 +56,9 @@ const SignUpBox = () => {
 
             srouter.push('/schedule');
         } catch (error) {
-            console.error('Signup failed:', error);
+            alert("Signup failed: Username and password must be longer than 6 characters.");
         } //catch
     };
-
     return (
         
         <div>
