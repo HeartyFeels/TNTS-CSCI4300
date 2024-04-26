@@ -1,6 +1,8 @@
+'use client'
 import EditExam from "../components/EditExam";
 import ExamList from "../components/ExamList";
-import Navbar from "/app/components/NavBar";
+import Navbar from "../components/NavBar";
+import {useState} from 'react'
 const EditPage = ({params}) => {
     const [exams, setExams] = useState([]);
     const editHandler = (exam) => {
@@ -11,8 +13,8 @@ const EditPage = ({params}) => {
     }
     return (
         <div>
-            <Navbar isActive={true} />
-            <ExamList items={exams}/>
+            <Navbar/>
+            {/* <ExamList items={exams}/> */}
             <EditExam onEditExam={editHandler}/>
         </div>
     )

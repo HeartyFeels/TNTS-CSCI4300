@@ -39,7 +39,6 @@ const SignUpBox = () => {
             username: username,
             password: password
         }
-
         try {
             await axios.post('http://localhost:8082/api/users/signup', formData);
 

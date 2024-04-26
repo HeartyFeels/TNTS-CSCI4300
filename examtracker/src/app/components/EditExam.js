@@ -1,5 +1,4 @@
 "use client"
-
 import Button from "./Button";
 import { useState } from "react";
 import Card from "./Card";
@@ -32,23 +31,23 @@ const EditExam = (props) => {
         setImg(event.target.value);
     }
 
-    const addHandler = (event) => {
+    const editHandler = (event) => {
         event.preventDefault();
-        const exam = {
-            //id: Math.random().toString(),
-            name: name,
-            subject: subject,
-            date: date,
-            location: location,
-            img: img
-        }
+        // const exam = {
+        //     //id: Math.random().toString(),
+        //     name: name,
+        //     subject: subject,
+        //     date: date,
+        //     location: location,
+        //     img: img
+        // }
 
         props.onEditExam(exam);
-        document.getElementById("name").value = "";
-        document.getElementById("subject").value = "";
-        document.getElementById("date").value = "";
-        document.getElementById("location").value = "";
-        document.getElementById("img").value = "";
+        // document.getElementById("name").value = "";
+        // document.getElementById("subject").value = "";
+        // document.getElementById("date").value = "";
+        // document.getElementById("location").value = "";
+        // document.getElementById("img").value = "";
         
         setName("");
         setSubject("");
@@ -61,7 +60,7 @@ const EditExam = (props) => {
         <div>
             <Card>
                 <h1>Edit Exam</h1>
-                
+                <form onSubmit={editHandler}>
                 <div className="row">
                     <label>Name of Exam: </label>
                     <input 
@@ -106,7 +105,8 @@ const EditExam = (props) => {
                     onChange={imgChanger}
                     />
                 </div>
-                <Link href="/schedule"><Button type="submit" action={addHandler}>Edit Exam</Button></Link>
+                <Link href="/schedule"><Button type="submit" onClick={editHandler}>Edit Exam</Button></Link>
+                </form>
             </Card>
         </div>
     );
