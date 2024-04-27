@@ -1,3 +1,5 @@
+"use client"
+
 import axios from "axios"
 import ExamCard from "./ExamCard"
 import { useEffect, useState } from "react"

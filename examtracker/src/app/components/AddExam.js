@@ -82,7 +82,7 @@ const AddExam = (props) => {
                     subject: '',
                     date: '',
                     location: '',
-                    img: ''
+                    img: '',
                 });
 
                 router.push('/')
