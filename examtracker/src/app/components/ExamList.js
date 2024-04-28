@@ -17,11 +17,16 @@ const ExamList = () => {
         });
     }, []);
 
+
+
+
+
     return (
         <div>
             {exams.map((exam) => (
                 <ExamCard 
-                    key = {exam.id}
+                    key = {exam._id}
+                    identifier = {exam._id}
                     name = {exam.name}
                     subject = {exam.subject}
                     date = {exam.date}

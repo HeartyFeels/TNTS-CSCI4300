@@ -1,9 +1,11 @@
 "use client"
+import axios from "axios";
 import Button from "./Button";
 import { useState } from "react";
 import Card from "./Card";
 import Link from "next/link";
 import "./Row.css"
+
 const EditExam = (props) => {
     const [name, setName] = useState("");
     const [subject, setSubject] = useState("");
