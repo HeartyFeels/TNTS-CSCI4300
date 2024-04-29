@@ -18,7 +18,21 @@ const ExamList = () => {
     }, []);
 
 
+    const deleteExamInState = (examId) => {
+        setExams((currentExams) => currentExams.filter((exam) => exam._id !== examId));
+    };
 
+
+    const updateExamInState = (updatedExam) => {
+        setExams((currentExams) => {
+          return currentExams.map((exam) => {
+            if (exam._id === updatedExam._id) {
+              return { ...exam, ...updatedExam };
+            }
+            return exam;
+          });
+        });
+    };
 
 
     return (
@@ -32,6 +46,8 @@ const ExamList = () => {
                     date = {exam.date}
                     location = {exam.location}
                     img = {exam.image}
+                    onDeleteExamInState={deleteExamInState}
+                    onUpdateExamInState={updateExamInState}
                 />
             ))}
         </div>

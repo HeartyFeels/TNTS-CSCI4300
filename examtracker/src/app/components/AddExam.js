@@ -9,6 +9,9 @@ import Link from "next/link";
 
 import {useState} from 'react';
 import axios from "axios";
+import UserContext from "../backend/context/UserContext";
+import { useContext } from "react";
+
 
 const AddExam = (props) => {
     const [name, setName] = useState("");
@@ -16,6 +19,7 @@ const AddExam = (props) => {
     const [date, setDate] = useState("");
     const [location, setLocation] = useState("");
     const [img, setImg] = useState("");
+    // const {userData} = useContext(UserContext);
 
     const nameChanger = (event) => {
         setName(event.target.value);
@@ -74,7 +78,9 @@ const AddExam = (props) => {
                 subject: subject,
                 date: date,
                 location: location,
-                image: img
+                image: img,
+                // username: userData.user.username,
+
             })
             .then((res) => {
                 setExam({
@@ -88,7 +94,7 @@ const AddExam = (props) => {
                 router.push('/')
             })
             .catch((err) => {
-                console.log("Error in creating exam")
+                console.log("Error in creating exam",err)
             });
     };
     

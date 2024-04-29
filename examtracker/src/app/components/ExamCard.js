@@ -5,6 +5,8 @@ import axios from 'axios';
 import "./ExamCard.css";
 import Card from "./Card";
 import "./Row.css";
+import UserContext from "../backend/context/UserContext";
+import { useContext } from 'react';
 
 const ExamCard = (props) => {
 
@@ -17,6 +19,7 @@ const ExamCard = (props) => {
     };
     */
 
+    const {userData} = useContext(UserContext);
     const [name, setName] = useState(`${props.name}`);
     const [subject, setSubject] = useState(`${props.subject}`);
     const [date, setDate] = useState(`${props.date}`);
@@ -47,8 +50,8 @@ const ExamCard = (props) => {
     const handleDeleteItem = async(event) => {
         event.preventDefault()
         try {
-            const response = axios.delete(`http://localhost:8082/api/exams/${props.identifier}`);
-            window.location.reload();
+            await axios.delete(`http://localhost:8082/api/exams/${props.identifier}`);
+            props.onDeleteExamInState(props.identifier); // Update the parent state to reflect deletion
         } catch (error) {
             console.log('Error deleting exam:', error);
         }
@@ -59,18 +62,51 @@ const ExamCard = (props) => {
         setEdit(true);
     };
 
-    const pushEdit = async(event) => {
+    // const pushEdit = async(event) => {
+    //     event.preventDefault();
+    //     try {
+    //         const updatedExam = { name, subject, date, location, img };
+    //         const response = await axios.put(`http://localhost:8082/api/exams/${props.identifier}`, updatedExam);
+    //         console.log(response.data);
+    
+    //         // Call the update handler passed via props
+    //         props.onUpdateExamInState(response.data);
+
+    //         setEdit(false); // Optionally close the edit view
+    //     } catch (error) {
+    //         console.error('Error updating exam:', error);
+    //     }
+    // }; 
+
+    const pushEdit = async (event) => {
         event.preventDefault();
         try {
-            const updatedExam = { name, subject, date, location, img };
+            // Constructing the updatedExam object
+            const updatedExam = {
+                _id: props.identifier, // Include the identifier as part of the update
+                name: name,
+                subject: subject,
+                date: date,
+                location: location,
+                image: img // Make sure the key here matches what's used in ExamList
+            };
+    
+            // Perform the PUT request to the server to update the exam
             const response = await axios.put(`http://localhost:8082/api/exams/${props.identifier}`, updatedExam);
-            console.log(response.data);
-            setEdit(false); 
+    
+            // Upon successful update, call the onUpdateExamInState with the updated exam data
+            if (response.data) {
+                props.onUpdateExamInState(response.data);
+                setEdit(false); // Close the edit mode
+            } else {
+                // Handle case where response data may not be as expected
+                console.error('Unexpected response data:', response);
+            }
         } catch (error) {
             console.error('Error updating exam:', error);
         }
-        window.location.reload();
-    }; 
+        window.location.reload()
+    };
 
     const renderCard = () => {
         return (
